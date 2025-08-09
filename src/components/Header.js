@@ -19,7 +19,7 @@ const Header = () => {
       <div className="container">
         <div className="logo">
           <Link to="/">
-            <h1>Ramsis Iconography</h1>
+            <h1 style={{ fontFamily: 'Cinzel, serif', fontWeight: '600' }}>Ramsis Iconography</h1>
             <p>Sacred Art by George Ramsis</p>
           </Link>
         </div>
@@ -54,8 +54,17 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link 
-                to="/contact" 
+              <Link
+                to="/history"
+                className={isActive('/history') ? 'active' : ''}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                History
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
                 className={isActive('/contact') ? 'active' : ''}
                 onClick={() => setIsMenuOpen(false)}
               >

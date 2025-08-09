@@ -12,12 +12,12 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: url('../../public/uploads/icons/IMG_2719.jpg');
+  background: url('../../public/uploads/icons/Theotokos.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center calc(50% + var(--scroll-offset, 0px));
+  background-position: center calc(0% + var(--scroll-offset, 0px));
   z-index: -1;
-  opacity: 0.3;
+  opacity: 0.7;
   transition: background-position 0.1s ease-out;
 }
 
@@ -112,10 +112,11 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 150px;
+  height: 200px;
   background: linear-gradient(to bottom,
     transparent 0%,
-    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.3) 30%,
+    rgba(255, 255, 255, 0.7) 70%,
     rgba(255, 255, 255, 1) 100%);
   pointer-events: none;
 }
@@ -214,147 +215,11 @@
   margin-top: 1rem;
 }
 
-/* Process Timeline Section */
-.process-timeline-section {
-  padding: 8rem 0;
-  background: linear-gradient(to bottom,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(248, 249, 250, 0.8) 50%,
-    rgba(248, 249, 250, 0.9) 100%);
-  position: relative;
-}
-
-.process-timeline-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 150px;
-  background: linear-gradient(to bottom,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 0.8) 50%,
-    transparent 100%);
-  pointer-events: none;
-}
-
-.process-timeline-section::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 150px;
-  background: linear-gradient(to bottom,
-    transparent 0%,
-    rgba(248, 249, 250, 0.8) 50%,
-    rgba(248, 249, 250, 1) 100%);
-  pointer-events: none;
-}
-
-.process-timeline-content {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.timeline-header {
-  text-align: center;
-  margin-bottom: 6rem;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 3rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-}
-
-.timeline-header h2 {
-  font-size: 3.5rem;
-  margin-bottom: 2rem;
-  color: var(--text-primary);
-}
-
-.timeline-header p {
-  font-size: 1.3rem;
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.timeline {
-  position: relative;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--accent-maroon);
-  transform: translateX(-50%);
-}
-
-.timeline-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 4rem;
-  position: relative;
-}
-
-.timeline-item:nth-child(odd) {
-  flex-direction: row;
-}
-
-.timeline-item:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-.timeline-number {
-  width: 60px;
-  height: 60px;
-  background: var(--accent-maroon);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  font-weight: 600;
-  position: relative;
-  z-index: 2;
-  flex-shrink: 0;
-}
-
-.timeline-content {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 2.5rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  margin: 0 3rem;
-  flex: 1;
-  max-width: 400px;
-}
-
-.timeline-content h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
-}
-
-.timeline-content p {
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 0;
-}
-
 /* Contact Info Section */
 .contact-info-section {
   padding: 8rem 0;
   background: linear-gradient(to bottom,
-    rgba(248, 249, 250, 0.9) 0%,
+    rgba(255, 255, 255, 0.9) 0%,
     rgba(255, 255, 255, 0.8) 50%,
     rgba(255, 255, 255, 0.9) 100%);
   position: relative;
@@ -368,8 +233,8 @@
   right: 0;
   height: 150px;
   background: linear-gradient(to bottom,
-    rgba(248, 249, 250, 1) 0%,
-    rgba(248, 249, 250, 0.8) 50%,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
     transparent 100%);
   pointer-events: none;
 }
@@ -522,37 +387,13 @@
   }
 
   .form-intro,
-  .timeline-header,
   .faq-header {
     padding: 2rem;
   }
 
   .form-intro h2,
-  .timeline-header h2,
   .faq-header h2 {
     font-size: 2.5rem;
-  }
-
-  .timeline::before {
-    left: 30px;
-  }
-
-  .timeline-item {
-    flex-direction: row !important;
-    align-items: flex-start;
-  }
-
-  .timeline-number {
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
-    margin-right: 2rem;
-    flex-shrink: 0;
-  }
-
-  .timeline-content {
-    margin: 0;
-    max-width: none;
   }
 
   .contact-info-grid,
@@ -580,26 +421,13 @@
   }
 
   .form-intro,
-  .timeline-header,
   .faq-header {
     padding: 1.5rem;
   }
 
   .form-intro h2,
-  .timeline-header h2,
   .faq-header h2 {
     font-size: 2rem;
-  }
-
-  .timeline-number {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-    margin-right: 1.5rem;
-  }
-
-  .timeline-content {
-    padding: 2rem 1.5rem;
   }
 
   .contact-info-item,

@@ -5,7 +5,7 @@ const Home = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.pageYOffset;
-      const rate = scrolled * 0.1;
+      const rate = scrolled * -0.1;
       
       // Update CSS custom property for the background position
       document.documentElement.style.setProperty('--scroll-offset', `${rate}px`);
@@ -20,7 +20,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
-          <h1>George Ramsis</h1>
+            <h1 style={{ fontFamily: 'Dancing Script, Pacifico, Brush Script MT, cursive', fontWeight: '700' }}>Ramsis Iconography</h1>
           <p className="lead">Master iconographer creating sacred art through ancient traditions and contemporary vision</p>
           <div className="hero-buttons">
             <a href="/gallery" className="btn btn-primary">View Work</a>
@@ -94,7 +94,7 @@ const Home = () => {
           <div className="gallery-grid">
             <div className="gallery-item">
               <img
-                src="/uploads/icons/IMG_7371.jpg"
+                src="/uploads/icons/Christ.jpg"
                 alt="Sacred Icon 1"
                 style={{
                   width: '100%',
@@ -107,7 +107,7 @@ const Home = () => {
             </div>
             <div className="gallery-item">
               <img
-                src="/uploads/icons/IMG_2719.jpg"
+                src="/uploads/icons/Theotokos.jpg"
                 alt="Sacred Icon 2"
                 style={{
                   width: '100%',
@@ -120,7 +120,7 @@ const Home = () => {
             </div>
             <div className="gallery-item">
               <img
-                src="/uploads/icons/IMG_5261.jpg"
+                src="/uploads/icons/StAnthony.jpg"
                 alt="Sacred Icon 3"
                 style={{
                   width: '100%',
@@ -133,7 +133,7 @@ const Home = () => {
             </div>
             <div className="gallery-item">
               <img
-                src="/uploads/icons/IMG_8454.jpg"
+                src="/uploads/icons/StAnthonyWords.jpg"
                 alt="Sacred Icon 4"
                 style={{
                   width: '100%',

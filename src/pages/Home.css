@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Pacifico&display=swap');
+
 .home {
   padding-top: 80px;
   position: relative;
@@ -12,12 +14,12 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: url('../../public/uploads/icons/IMG_7371.jpg');
+  background: url('../../public/uploads/icons/Christ.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center calc(50% + var(--scroll-offset, 0px));
+  background-position: center calc(0% + var(--scroll-offset, 0px));
   z-index: -1;
-  opacity: 0.3;
+  opacity: 0.7;
   transition: background-position 0.1s ease-out;
 }
 
@@ -62,13 +64,16 @@
 }
 
 .hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 5rem;
-  font-weight: 400;
+  font-family: 'Dancing Script', 'Pacifico', 'Brush Script MT', cursive;
+  font-size: 5.5rem;
+  font-weight: 700;
   margin-bottom: 2rem;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  color: #722030;
   line-height: 1.1;
+  text-shadow: 2px 2px 6px rgba(114, 32, 48, 0.4);
+  transform: rotate(-1deg);
+  display: inline-block;
 }
 
 .hero .lead {

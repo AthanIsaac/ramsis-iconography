@@ -98,6 +98,17 @@
   width: 100%;
 }
 
+/* Remove focus outline from navigation links and buttons */
+.nav a:focus,
+.nav a:focus-visible {
+  outline: none;
+}
+
+.logo a:focus,
+.logo a:focus-visible {
+  outline: none;
+}
+
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -117,6 +128,11 @@
   background: var(--text-primary);
   border-radius: 2px;
   transition: all 0.3s ease;
+}
+
+.menu-toggle:focus,
+.menu-toggle:focus-visible {
+  outline: none;
 }
 
 /* Mobile Styles */
@@ -150,8 +166,7 @@
     transition: all 0.3s ease;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     border-top: 1px solid var(--border-subtle);
-  }</search>
-</search_and_replace>
+  }
 
   .nav-open {
     transform: translateY(0);

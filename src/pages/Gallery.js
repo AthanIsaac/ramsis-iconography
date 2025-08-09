@@ -5,7 +5,7 @@ const Gallery = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.pageYOffset;
-      const rate = scrolled * 0.1;
+      const rate = scrolled * -0.1;
       
       // Update CSS custom property for the background position
       document.documentElement.style.setProperty('--scroll-offset', `${rate}px`);
@@ -35,7 +35,7 @@ const Gallery = () => {
           <div className="featured-grid">
             <div className="featured-item">
               <img
-                src="/uploads/icons/IMG_7371.jpg"
+                src="/uploads/icons/Christ.jpg"
                 alt="Christ Pantocrator Icon"
                 style={{
                   width: '100%',
@@ -52,7 +52,7 @@ const Gallery = () => {
             </div>
             <div className="featured-item">
               <img
-                src="/uploads/icons/IMG_2719.jpg"
+                src="/uploads/icons/Theotokos.jpg"
                 alt="Theotokos and Child Icon"
                 style={{
                   width: '100%',
@@ -69,8 +69,8 @@ const Gallery = () => {
             </div>
             <div className="featured-item">
               <img
-                src="/uploads/icons/IMG_5261.jpg"
-                alt="Saint Nicholas Icon"
+                src="/uploads/icons/StAnthony.jpg"
+                alt="Saint Anthony Icon"
                 style={{
                   width: '100%',
                   height: '100%',
@@ -86,8 +86,8 @@ const Gallery = () => {
             </div>
             <div className="featured-item">
               <img
-                src="/uploads/icons/IMG_8454.jpg"
-                alt="Archangel Michael Icon"
+                src="/uploads/icons/StAnthonyWords.jpg"
+                alt="Saint Anthony with Words Icon"
                 style={{
                   width: '100%',
                   height: '100%',

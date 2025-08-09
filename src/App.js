@@ -6,6 +6,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import About from './pages/About';
 import Gallery from './pages/Gallery';
+import History from './pages/History';
 import Contact from './pages/Contact';
 import './App.css';
 
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/history" element={<History />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

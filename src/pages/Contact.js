@@ -13,7 +13,7 @@ const Contact = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.pageYOffset;
-      const rate = scrolled * 0.1;
+      const rate = scrolled * -0.1;
       
       // Update CSS custom property for the background position
       document.documentElement.style.setProperty('--scroll-offset', `${rate}px`);
@@ -132,50 +132,6 @@ const Contact = () => {
               Send Commission Request
             </button>
           </form>
-        </div>
-      </section>
-
-      {/* Process Timeline Section */}
-      <section className="process-timeline-section">
-        <div className="process-timeline-content">
-          <div className="timeline-header">
-            <h2>Commission Process</h2>
-            <p>Understanding the journey from initial consultation to blessed completion</p>
-          </div>
-          
-          <div className="timeline">
-            <div className="timeline-item">
-              <div className="timeline-number">1</div>
-              <div className="timeline-content">
-                <h3>Initial Consultation</h3>
-                <p>We discuss your spiritual needs, preferred subjects, size, and timeline. I provide guidance on iconographic traditions and pricing.</p>
-              </div>
-            </div>
-            
-            <div className="timeline-item">
-              <div className="timeline-number">2</div>
-              <div className="timeline-content">
-                <h3>Design & Approval</h3>
-                <p>I create preliminary sketches following canonical guidelines. We refine the design until it perfectly captures your vision.</p>
-              </div>
-            </div>
-            
-            <div className="timeline-item">
-              <div className="timeline-number">3</div>
-              <div className="timeline-content">
-                <h3>Sacred Creation</h3>
-                <p>The icon is painted using traditional methods, natural pigments, and gold leaf. This process includes prayer and spiritual preparation.</p>
-              </div>
-            </div>
-            
-            <div className="timeline-item">
-              <div className="timeline-number">4</div>
-              <div className="timeline-content">
-                <h3>Blessing & Delivery</h3>
-                <p>The completed icon receives proper blessing and is carefully packaged for delivery to your home or church.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
