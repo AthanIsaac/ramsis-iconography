@@ -1,19 +1,33 @@
 .home {
   padding-top: 80px;
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* Hero Section with Icon Background */
+/* Single Large Background Icon for Entire Page */
+.home::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('../../public/uploads/icons/IMG_7371.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center calc(50% + var(--scroll-offset, 0px));
+  z-index: -1;
+  opacity: 0.3;
+  transition: background-position 0.1s ease-out;
+}
+
+/* Hero Section */
 .hero {
   min-height: 100vh;
-  background:
-    linear-gradient(to bottom,
-      rgba(255, 255, 255, 0.8) 0%,
-      rgba(248, 249, 250, 0.9) 50%,
-      rgba(248, 249, 250, 0.95) 100%),
-    url('../../public/uploads/icons/IMG_7371.jpg');
-  background-size: cover;
-  background-position: center 10%;
-  background-attachment: fixed;
+  background: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(248, 249, 250, 0.8) 50%,
+    rgba(248, 249, 250, 0.9) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,20 +89,13 @@
   flex-wrap: wrap;
 }
 
-/* About Section with Icon Background */
+/* About Section */
 .about-section {
   padding: 8rem 0;
-  background:
-    linear-gradient(to bottom,
-      rgba(248, 249, 250, 1) 0%,
-      rgba(248, 249, 250, 0.9) 20%,
-      rgba(255, 255, 255, 0.9) 50%,
-      rgba(255, 255, 255, 0.95) 80%,
-      rgba(255, 255, 255, 1) 100%),
-    url('../../public/uploads/icons/IMG_2719.jpg');
-  background-size: cover;
-  background-position: center 10%;
-  background-attachment: fixed;
+  background: linear-gradient(to bottom,
+    rgba(248, 249, 250, 0.9) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.9) 100%);
   position: relative;
 }
 
@@ -166,20 +173,13 @@
   transform: scale(1.02);
 }
 
-/* Services Section with Icon Background */
+/* Services Section */
 .services-section {
   padding: 8rem 0;
-  background:
-    linear-gradient(to bottom,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 0.9) 20%,
-      rgba(248, 249, 250, 0.9) 50%,
-      rgba(248, 249, 250, 0.95) 80%,
-      rgba(248, 249, 250, 1) 100%),
-    url('../../public/uploads/icons/IMG_5261.jpg');
-  background-size: cover;
-  background-position: top center;
-  background-attachment: fixed;
+  background: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(248, 249, 250, 0.8) 50%,
+    rgba(248, 249, 250, 0.9) 100%);
   position: relative;
 }
 
@@ -275,20 +275,13 @@
   line-height: 1.6;
 }
 
-/* Gallery Section with Icon Background */
+/* Gallery Section */
 .gallery-section {
   padding: 8rem 0;
-  background:
-    linear-gradient(to bottom,
-      rgba(248, 249, 250, 1) 0%,
-      rgba(248, 249, 250, 0.9) 20%,
-      rgba(255, 255, 255, 0.9) 50%,
-      rgba(255, 255, 255, 0.95) 80%,
-      rgba(255, 255, 255, 1) 100%),
-    url('../../public/uploads/icons/IMG_8454.jpg');
-  background-size: cover;
-  background-position: top center;
-  background-attachment: fixed;
+  background: linear-gradient(to bottom,
+    rgba(248, 249, 250, 0.9) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.9) 100%);
   position: relative;
 }
 

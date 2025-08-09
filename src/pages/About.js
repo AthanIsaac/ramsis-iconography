@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './About.css';
 
 const About = () => {
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.pageYOffset;
+      const rate = scrolled * 0.1;
+      
+      // Update CSS custom property for the background position
+      document.documentElement.style.setProperty('--scroll-offset', `${rate}px`);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="about">
       {/* Hero Section */}

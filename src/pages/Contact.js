@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Contact.css';
 
 const Contact = () => {
@@ -9,6 +9,19 @@ const Contact = () => {
     projectType: '',
     message: ''
   });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.pageYOffset;
+      const rate = scrolled * 0.1;
+      
+      // Update CSS custom property for the background position
+      document.documentElement.style.setProperty('--scroll-offset', `${rate}px`);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
