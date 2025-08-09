@@ -1,70 +1,160 @@
-# Getting Started with Create React App
+# Ramsis Iconography Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A sleek React website for Coptic iconographer George Ramsis, showcasing sacred art and providing commission services.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Responsive Design**: Works beautifully on desktop, tablet, and mobile devices
+- **Sacred Art Gallery**: Organized gallery with category filtering
+- **About Page**: Detailed artist biography with photo section
+- **Contact Form**: Professional contact form for commissions
+- **Upload-Ready Structure**: Pre-configured folders for easy image management
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Installation
 
-### `npm test`
+1. Navigate to the project directory:
+```bash
+cd ramsis-iconography
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install dependencies:
+```bash
+npm install
+```
 
-### `npm run build`
+3. Start the development server:
+```bash
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Open [http://localhost:3000](http://localhost:3000) to view the website
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Adding Images
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Iconographer Photo (About Page)
 
-### `npm run eject`
+1. Navigate to `src/assets/images/`
+2. Upload George Ramsis's photo (recommended: `george-ramsis.jpg`)
+3. Update the About page component (`src/pages/About.js`) to reference the actual image:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```jsx
+// Replace the image placeholder div with:
+<img 
+  src="/src/assets/images/george-ramsis.jpg" 
+  alt="George Ramsis" 
+  className="profile-photo"
+/>
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Icon Samples (Gallery Page)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Navigate to `public/uploads/icons/`
+2. Upload your icon images (JPG, PNG, or WEBP format recommended)
+3. Update the `iconSamples` array in `src/pages/Gallery.js`:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```jsx
+const iconSamples = [
+  { 
+    id: 1, 
+    title: 'Christ Pantocrator', 
+    category: 'christ', 
+    description: 'Traditional Byzantine style icon of Christ the Ruler of All',
+    image: '/uploads/icons/christ-pantocrator.jpg' // Add this line
+  },
+  // ... add image paths to other entries
+];
+```
 
-## Learn More
+4. Update the Gallery component to display actual images:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```jsx
+// Replace image placeholder with:
+<img 
+  src={icon.image} 
+  alt={icon.title}
+  className="gallery-image"
+/>
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Folder Structure
 
-### Code Splitting
+```
+ramsis-iconography/
+├── public/
+│   ├── uploads/
+│   │   └── icons/          # Upload icon samples here
+│   └── ...
+├── src/
+│   ├── assets/
+│   │   ├── images/         # Upload iconographer photo here
+│   │   └── icons/          # Additional icon assets
+│   ├── components/
+│   │   ├── Header.js       # Navigation component
+│   │   └── Footer.js       # Footer component
+│   ├── pages/
+│   │   ├── Home.js         # Homepage
+│   │   ├── About.js        # About page with photo section
+│   │   ├── Gallery.js      # Gallery with upload structure
+│   │   └── Contact.js      # Contact form
+│   └── ...
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Customization
 
-### Analyzing the Bundle Size
+### Colors and Branding
+The website uses a gold and dark theme appropriate for sacred art. Main colors:
+- Primary Gold: `#d4af37`
+- Light Gold: `#f4e4bc`
+- Dark Background: `#1a1a1a`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Content Updates
+- **Artist Information**: Update `src/pages/About.js`
+- **Contact Details**: Update `src/pages/Contact.js`
+- **Services**: Update `src/pages/Home.js`
 
-### Making a Progressive Web App
+### Adding New Gallery Categories
+Update the `categories` array in `src/pages/Gallery.js`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```jsx
+const categories = [
+  { id: 'all', name: 'All Works' },
+  { id: 'new-category', name: 'New Category' },
+  // ... existing categories
+];
+```
 
-### Advanced Configuration
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Build for Production
+```bash
+npm run build
+```
 
-### Deployment
+This creates a `build` folder with optimized files ready for deployment.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Deployment Options
+- **Netlify**: Drag and drop the `build` folder
+- **Vercel**: Connect your GitHub repository
+- **Traditional Hosting**: Upload `build` folder contents to your web server
 
-### `npm run build` fails to minify
+## Technical Details
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Framework**: React 18
+- **Routing**: React Router DOM
+- **Styling**: Pure CSS with modern features
+- **Responsive**: Mobile-first design approach
+- **Accessibility**: WCAG compliant with proper focus management
+
+## Support
+
+For technical support or customization requests, please refer to the React documentation or contact your web developer.
+
+## License
+
+This project is created specifically for Ramsis Iconography. All rights reserved.

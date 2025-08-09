@@ -1,0 +1,550 @@
+.about {
+  padding-top: 80px;
+}
+
+/* Hero Section with Icon Background */
+.hero {
+  min-height: 80vh;
+  background:
+    linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(248, 249, 250, 0.9) 50%,
+      rgba(248, 249, 250, 0.95) 100%),
+    url('../../public/uploads/icons/IMG_5261.jpg');
+  background-size: cover;
+  background-position: center 20%;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 0 2rem;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(248, 249, 250, 0.3) 30%,
+    rgba(248, 249, 250, 0.7) 70%,
+    rgba(248, 249, 250, 1) 100%);
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 800px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4rem 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.hero .lead {
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Biography Section with Icon Background */
+.biography-section {
+  padding: 8rem 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(248, 249, 250, 1) 0%,
+      rgba(248, 249, 250, 0.9) 20%,
+      rgba(255, 255, 255, 0.9) 50%,
+      rgba(255, 255, 255, 0.95) 80%,
+      rgba(255, 255, 255, 1) 100%),
+    url('../../public/uploads/icons/IMG_2719.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.biography-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to bottom,
+    rgba(248, 249, 250, 1) 0%,
+    rgba(248, 249, 250, 0.8) 50%,
+    transparent 100%);
+  pointer-events: none;
+}
+
+.biography-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 1) 100%);
+  pointer-events: none;
+}
+
+.biography-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.biography-text {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.biography-text h2 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.biography-text p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.biography-image {
+  position: relative;
+}
+
+.biography-image img {
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.biography-image img:hover {
+  border-color: var(--accent-maroon) !important;
+  transform: scale(1.02);
+}
+
+/* Training Section with Icon Background */
+.training-section {
+  padding: 8rem 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.9) 20%,
+      rgba(248, 249, 250, 0.9) 50%,
+      rgba(248, 249, 250, 0.95) 80%,
+      rgba(248, 249, 250, 1) 100%),
+    url('../../public/uploads/icons/IMG_7371.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.training-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to bottom,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    transparent 100%);
+  pointer-events: none;
+}
+
+.training-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(248, 249, 250, 0.8) 50%,
+    rgba(248, 249, 250, 1) 100%);
+  pointer-events: none;
+}
+
+.training-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.training-header {
+  text-align: center;
+  margin-bottom: 6rem;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.training-header h2 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.training-header p {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.training-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+}
+
+.training-item {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border-subtle);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.training-item:hover {
+  border-color: var(--accent-maroon);
+  background: rgba(255, 255, 255, 0.98);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(139, 21, 56, 0.2);
+}
+
+.training-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.training-item p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Philosophy Section with Icon Background */
+.philosophy-section {
+  padding: 8rem 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(248, 249, 250, 1) 0%,
+      rgba(248, 249, 250, 0.9) 20%,
+      rgba(255, 255, 255, 0.9) 50%,
+      rgba(255, 255, 255, 0.95) 80%,
+      rgba(255, 255, 255, 1) 100%),
+    url('../../public/uploads/icons/IMG_8454.jpg');
+  background-size: cover;
+  background-position: center 50%;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.philosophy-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to bottom,
+    rgba(248, 249, 250, 1) 0%,
+    rgba(248, 249, 250, 0.8) 50%,
+    transparent 100%);
+  pointer-events: none;
+}
+
+.philosophy-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 1) 100%);
+  pointer-events: none;
+}
+
+.philosophy-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.philosophy-content h2 {
+  font-size: 3.5rem;
+  margin-bottom: 4rem;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.philosophy-text {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4rem 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.philosophy-text p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  font-style: italic;
+  position: relative;
+}
+
+.philosophy-text p:before {
+  content: '"';
+  font-size: 4rem;
+  color: var(--accent-maroon);
+  position: absolute;
+  left: -2rem;
+  top: -1rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.philosophy-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Recognition Section */
+.recognition-section {
+  padding: 8rem 0;
+  background: var(--gradient-light);
+  position: relative;
+}
+
+.recognition-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.recognition-header {
+  text-align: center;
+  margin-bottom: 6rem;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.recognition-header h2 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.recognition-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+}
+
+.recognition-item {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-subtle);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.recognition-item:hover {
+  border-color: var(--accent-maroon);
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(139, 21, 56, 0.2);
+}
+
+.recognition-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.recognition-item p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Contact CTA Section */
+.contact-cta-section {
+  padding: 8rem 0;
+  background: var(--gradient-light);
+  text-align: center;
+}
+
+.contact-cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.contact-cta-content h2 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.contact-cta-content p {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about {
+    padding-top: 70px;
+  }
+
+  .hero-content {
+    padding: 3rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero .lead {
+    font-size: 1.2rem;
+  }
+
+  .biography-content {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    text-align: center;
+  }
+
+  .biography-text,
+  .training-header,
+  .philosophy-content h2,
+  .philosophy-text,
+  .recognition-header,
+  .contact-cta-content {
+    padding: 2rem;
+  }
+
+  .biography-text h2,
+  .training-header h2,
+  .philosophy-content h2,
+  .recognition-header h2,
+  .contact-cta-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .training-grid,
+  .recognition-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .philosophy-text p:before {
+    left: -1rem;
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero .lead {
+    font-size: 1.1rem;
+  }
+
+  .hero-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .biography-text,
+  .training-header,
+  .philosophy-content h2,
+  .philosophy-text,
+  .recognition-header,
+  .contact-cta-content {
+    padding: 1.5rem;
+  }
+
+  .biography-text h2,
+  .training-header h2,
+  .philosophy-content h2,
+  .recognition-header h2,
+  .contact-cta-content h2 {
+    font-size: 2rem;
+  }
+
+  .training-item,
+  .recognition-item {
+    padding: 2rem 1.5rem;
+  }
+
+  .philosophy-text p:before {
+    display: none;
+  }
+}

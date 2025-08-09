@@ -1,0 +1,14 @@
+Upload George Ramsis's photo here!
+
+Recommended specifications:
+- Format: JPG or PNG
+- Size: 400x400px to 600x600px (square or portrait)
+- Resolution: High quality for web display
+- Filename: george-ramsis.jpg (or similar)
+
+To use the photo:
+1. Upload the image file to this folder
+2. Update the About.js component to reference the actual image
+3. Replace the image placeholder with the real photo
+
+The About page is designed to showcase the iconographer prominently with a professional layout.
