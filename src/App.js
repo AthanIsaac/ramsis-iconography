@@ -12,7 +12,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/ramsis-iconography">
       <ScrollToTop />
       <div className="App">
         <Header />

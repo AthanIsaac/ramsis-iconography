@@ -4,27 +4,27 @@ import './IconSlideshow.css';
 const IconSlideshow = () => {
   const icons = [
     {
-      src: '/uploads/icons/Christ.jpg',
+      src: `${process.env.PUBLIC_URL}/uploads/icons/Christ.jpg`,
       alt: 'Christ Icon'
     },
     {
-      src: '/uploads/icons/Theotokos.jpg',
+      src: `${process.env.PUBLIC_URL}/uploads/icons/Theotokos.jpg`,
       alt: 'Theotokos Icon'
     },
     {
-      src: '/uploads/icons/StAnthony.jpg',
+      src: `${process.env.PUBLIC_URL}/uploads/icons/StAnthony.jpg`,
       alt: 'Saint Anthony Icon'
     },
     {
-      src: '/uploads/icons/StAnthonyWords.jpg',
+      src: `${process.env.PUBLIC_URL}/uploads/icons/StAnthonyWords.jpg`,
       alt: 'Saint Anthony with Words Icon'
     },
     {
-      src: '/uploads/icons/history1.png',
+      src: `${process.env.PUBLIC_URL}/uploads/icons/history1.png`,
       alt: 'Historical Icon 1'
     },
     {
-      src: '/uploads/icons/history2.png',
+      src: `${process.env.PUBLIC_URL}/uploads/icons/history2.png`,
       alt: 'Historical Icon 2'
     }
   ];

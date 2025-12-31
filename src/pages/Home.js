@@ -41,7 +41,7 @@ const Home = () => {
           </div>
           <div className="about-image">
             <img
-              src="/uploads/icons/iconographer.jpg"
+              src={`${process.env.PUBLIC_URL}/uploads/icons/iconographer.jpg`}
               alt="George Ramsis - Master Iconographer"
               style={{
                 width: '100%',

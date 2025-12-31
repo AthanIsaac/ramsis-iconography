@@ -85,7 +85,7 @@ const History = () => {
           </div>
           <div className="introduction-image">
             <LazyImage
-              src="/uploads/icons/history1.png"
+              src={`${process.env.PUBLIC_URL}/uploads/icons/history1.png`}
               alt="Ancient Coptic iconographic traditions"
               className="introduction-image-img"
             />
@@ -153,7 +153,7 @@ const History = () => {
         <div className="characteristics-content">
           <div className="characteristics-image">
             <LazyImage
-              src="/uploads/icons/history2.png"
+              src={`${process.env.PUBLIC_URL}/uploads/icons/history2.png`}
               alt="Characteristics of Coptic iconographic art"
               className="characteristics-image-img"
             />
