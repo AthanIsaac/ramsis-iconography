@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { useScrollEffect } from '../hooks/useScrollEffect';
 import LazyImage from '../components/LazyImage';
 import './History.css';
@@ -240,8 +241,8 @@ const History = () => {
           <h2>Experience This Sacred Tradition</h2>
           <p>Discover how George Ramsis continues the ancient art of Coptic iconography in his contemporary work.</p>
           <div className="cta-buttons">
-            <a href="/gallery" className="btn btn-primary">View Gallery</a>
-            <a href="/contact" className="btn btn-secondary">Commission an Icon</a>
+            <Link to="/gallery" className="btn btn-primary">View Gallery</Link>
+            <Link to="/contact" className="btn btn-secondary">Commission an Icon</Link>
           </div>
         </div>
       </section>

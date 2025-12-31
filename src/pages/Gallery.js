@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Gallery.css';
 
 const Gallery = () => {
@@ -205,8 +206,8 @@ const Gallery = () => {
           <h2>Commission Your Sacred Icon</h2>
           <p>Ready to discuss your vision for a custom icon or learn about available works?</p>
           <div className="cta-buttons">
-            <a href="/contact" className="btn btn-primary">Start Your Commission</a>
-            <a href="/about" className="btn btn-outline">Learn About the Process</a>
+            <Link to="/contact" className="btn btn-primary">Start Your Commission</Link>
+            <Link to="/about" className="btn btn-outline">Learn About the Process</Link>
           </div>
         </div>
       </section>

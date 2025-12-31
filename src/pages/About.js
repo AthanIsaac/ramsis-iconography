@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './About.css';
 
 const About = () => {
@@ -275,7 +276,7 @@ const About = () => {
         <div className="contact-cta-content">
           <h2>Commission Your Sacred Art</h2>
           <p>Ready to discuss your vision for a custom icon or learn more about the iconographic process?</p>
-          <a href="/contact" className="btn btn-primary">Get In Touch</a>
+          <Link to="/contact" className="btn btn-primary">Get In Touch</Link>
         </div>
       </section>
     </div>

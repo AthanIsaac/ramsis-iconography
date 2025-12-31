@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -14,11 +15,11 @@ const Footer = () => {
           </div>
           
           <div className="footer-links">
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/gallery">Gallery</a>
-            <a href="/history">History</a>
-            <a href="/contact">Contact</a>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/gallery">Gallery</Link>
+            <Link to="/history">History</Link>
+            <Link to="/contact">Contact</Link>
           </div>
           
           <div className="footer-social">

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Home.css';
 import IconSlideshow from '../components/IconSlideshow';
 
@@ -37,7 +38,7 @@ const Home = () => {
               natural pigments, and gold leaf, following canonical traditions
               while bringing fresh perspective to timeless subjects.
             </p>
-            <a href="/about" className="btn btn-ghost">Learn More →</a>
+            <Link to="/about" className="btn btn-ghost">Learn More →</Link>
           </div>
           <div className="about-image">
             <img
@@ -84,7 +85,7 @@ const Home = () => {
         <div className="contact-content">
           <h2>Commission Sacred Art</h2>
           <p>Ready to discuss your vision for a custom icon or restoration project?</p>
-          <a href="/contact" className="btn btn-primary">Get In Touch</a>
+          <Link to="/contact" className="btn btn-primary">Get In Touch</Link>
         </div>
       </section>
     </div>
