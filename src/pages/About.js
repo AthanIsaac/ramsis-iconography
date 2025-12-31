@@ -178,7 +178,7 @@ const About = () => {
           </div>
           <div className="biography-image">
             <img
-              src={`${process.env.PUBLIC_URL}/uploads/icons/iconographer.jpg`}
+              src="/ramsis-iconography/uploads/icons/iconographer.jpg"
               alt="George Ramsis in his studio"
               style={{
                 width: '100%',
@@ -258,7 +258,7 @@ const About = () => {
                   {getCurrentPageImages(projectKey).map((image, index) => (
                     <img
                       key={index}
-                      src={`${process.env.PUBLIC_URL}/uploads/projects/${projectKey}/${image}`}
+                      src={`/ramsis-iconography/uploads/projects/${projectKey}/${image}`}
                       alt={`${projectsData[projectKey].name} - ${index + 1}`}
                     />
                   ))}

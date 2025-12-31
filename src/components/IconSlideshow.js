@@ -4,27 +4,27 @@ import './IconSlideshow.css';
 const IconSlideshow = () => {
   const icons = [
     {
-      src: `${process.env.PUBLIC_URL}/uploads/icons/Christ.jpg`,
+      src: '/ramsis-iconography/uploads/icons/Christ.jpg',
       alt: 'Christ Icon'
     },
     {
-      src: `${process.env.PUBLIC_URL}/uploads/icons/Theotokos.jpg`,
+      src: '/ramsis-iconography/uploads/icons/Theotokos.jpg',
       alt: 'Theotokos Icon'
     },
     {
-      src: `${process.env.PUBLIC_URL}/uploads/icons/StAnthony.jpg`,
+      src: '/ramsis-iconography/uploads/icons/StAnthony.jpg',
       alt: 'Saint Anthony Icon'
     },
     {
-      src: `${process.env.PUBLIC_URL}/uploads/icons/StAnthonyWords.jpg`,
+      src: '/ramsis-iconography/uploads/icons/StAnthonyWords.jpg',
       alt: 'Saint Anthony with Words Icon'
     },
     {
-      src: `${process.env.PUBLIC_URL}/uploads/icons/history1.png`,
+      src: '/ramsis-iconography/uploads/icons/history1.png',
       alt: 'Historical Icon 1'
     },
     {
-      src: `${process.env.PUBLIC_URL}/uploads/icons/history2.png`,
+      src: '/ramsis-iconography/uploads/icons/history2.png',
       alt: 'Historical Icon 2'
     }
   ];

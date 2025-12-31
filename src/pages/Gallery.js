@@ -35,7 +35,7 @@ const Gallery = () => {
           <div className="featured-grid">
             <div className="featured-item">
               <img
-                src={`${process.env.PUBLIC_URL}/uploads/icons/Christ.jpg`}
+                src="/ramsis-iconography/uploads/icons/Christ.jpg"
                 alt="Christ Pantocrator Icon"
                 style={{
                   width: '100%',
@@ -52,7 +52,7 @@ const Gallery = () => {
             </div>
             <div className="featured-item">
               <img
-                src={`${process.env.PUBLIC_URL}/uploads/icons/Theotokos.jpg`}
+                src="/ramsis-iconography/uploads/icons/Theotokos.jpg"
                 alt="Theotokos and Child Icon"
                 style={{
                   width: '100%',
@@ -69,7 +69,7 @@ const Gallery = () => {
             </div>
             <div className="featured-item">
               <img
-                src={`${process.env.PUBLIC_URL}/uploads/icons/StAnthony.jpg`}
+                src="/ramsis-iconography/uploads/icons/StAnthony.jpg"
                 alt="Saint Anthony Icon"
                 style={{
                   width: '100%',
@@ -86,7 +86,7 @@ const Gallery = () => {
             </div>
             <div className="featured-item">
               <img
-                src={`${process.env.PUBLIC_URL}/uploads/icons/StAnthonyWords.jpg`}
+                src="/ramsis-iconography/uploads/icons/StAnthonyWords.jpg"
                 alt="Saint Anthony with Words Icon"
                 style={{
                   width: '100%',
