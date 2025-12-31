@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './Home.css';
+import IconSlideshow from '../components/IconSlideshow';
 
 const Home = () => {
   useEffect(() => {
@@ -17,16 +18,9 @@ const Home = () => {
 
   return (
     <div className="home">
-      {/* Hero Section */}
+      {/* Hero Section - Icon Slideshow */}
       <section className="hero">
-        <div className="hero-content">
-            <h1 style={{ fontFamily: 'Dancing Script, Pacifico, Brush Script MT, cursive', fontWeight: '700' }}>Ramsis Iconography</h1>
-          <p className="lead">Master iconographer creating sacred art through ancient traditions and contemporary vision</p>
-          <div className="hero-buttons">
-            <a href="/gallery" className="btn btn-primary">View Work</a>
-            <a href="/about" className="btn btn-secondary">About</a>
-          </div>
-        </div>
+        <IconSlideshow />
       </section>
 
       {/* About Section */}
@@ -81,72 +75,6 @@ const Home = () => {
               <h3>Private Collections</h3>
               <p>Intimate icons for personal devotion, prayer corners, and family heirlooms.</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Section */}
-      <section className="gallery-section">
-        <div className="gallery-content">
-          <div className="gallery-header">
-            <h2>Recent Works</h2>
-          </div>
-          <div className="gallery-grid">
-            <div className="gallery-item">
-              <img
-                src="/uploads/icons/Christ.jpg"
-                alt="Sacred Icon 1"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  border: '1px solid var(--border-subtle)',
-                  transition: 'all 0.3s ease'
-                }}
-              />
-            </div>
-            <div className="gallery-item">
-              <img
-                src="/uploads/icons/Theotokos.jpg"
-                alt="Sacred Icon 2"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  border: '1px solid var(--border-subtle)',
-                  transition: 'all 0.3s ease'
-                }}
-              />
-            </div>
-            <div className="gallery-item">
-              <img
-                src="/uploads/icons/StAnthony.jpg"
-                alt="Sacred Icon 3"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  border: '1px solid var(--border-subtle)',
-                  transition: 'all 0.3s ease'
-                }}
-              />
-            </div>
-            <div className="gallery-item">
-              <img
-                src="/uploads/icons/StAnthonyWords.jpg"
-                alt="Sacred Icon 4"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  border: '1px solid var(--border-subtle)',
-                  transition: 'all 0.3s ease'
-                }}
-              />
-            </div>
-          </div>
-          <div className="gallery-cta">
-            <a href="/gallery" className="btn btn-outline">View All Work</a>
           </div>
         </div>
       </section>

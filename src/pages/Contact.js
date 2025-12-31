@@ -7,8 +7,18 @@ const Contact = () => {
     email: '',
     phone: '',
     projectType: '',
+    size: '',
     message: ''
   });
+
+  const sizeOptions = [
+    { value: '8x10', label: '8" x 10"', price: 175 },
+    { value: '11x14', label: '11" x 14"', price: 220 },
+    { value: '12x16', label: '12" x 16"', price: 250 },
+    { value: '16x20', label: '16" x 20"', price: 275 },
+    { value: '18x24', label: '18" x 24"', price: 320 },
+    { value: 'custom', label: 'Larger Size (Custom Quote)', price: null }
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -115,6 +125,34 @@ const Contact = () => {
               </div>
             </div>
 
+            {/* Conditional Size Selection for Personal Icons */}
+            {formData.projectType === 'personal-icon' && (
+              <div className="form-group size-selection">
+                <label htmlFor="size">Icon Size *</label>
+                <div className="size-options">
+                  {sizeOptions.map((option) => (
+                    <div key={option.value} className="size-option">
+                      <input
+                        type="radio"
+                        id={`size-${option.value}`}
+                        name="size"
+                        value={option.value}
+                        checked={formData.size === option.value}
+                        onChange={handleChange}
+                        required
+                      />
+                      <label htmlFor={`size-${option.value}`} className="size-option-label">
+                        <span className="size-label">{option.label}</span>
+                        <span className="size-price">
+                          {option.price ? `$${option.price} + (Shipping etc)` : 'Cost will vary'}
+                        </span>
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <div className="form-group">
               <label htmlFor="message">Project Details *</label>
               <textarea
@@ -140,20 +178,11 @@ const Contact = () => {
         <div className="contact-info-content">
           <div className="contact-info-grid">
             <div className="contact-info-item">
-              <h3>Studio Location</h3>
-              <p>
-                123 Sacred Arts Lane<br />
-                Iconography District<br />
-                Sacred City, SC 12345
-              </p>
-            </div>
-            
-            <div className="contact-info-item">
               <h3>Contact Details</h3>
               <p>
                 Email: info@ramsisiconography.com<br />
                 Phone: (555) 123-4567<br />
-                Studio Hours: By Appointment
+                Available: By Appointment
               </p>
             </div>
             
@@ -163,15 +192,6 @@ const Contact = () => {
                 Personal Icons: 4-8 weeks<br />
                 Church Projects: 3-12 months<br />
                 Iconostasis: 6-18 months
-              </p>
-            </div>
-            
-            <div className="contact-info-item">
-              <h3>Investment Range</h3>
-              <p>
-                Personal Icons: $800 - $3,000<br />
-                Church Commissions: $5,000+<br />
-                Consultation: $150/hour
               </p>
             </div>
           </div>

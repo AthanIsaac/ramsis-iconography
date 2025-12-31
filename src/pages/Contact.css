@@ -208,6 +208,68 @@
   min-height: 120px;
 }
 
+/* Size Selection Styles */
+.size-selection {
+  margin-bottom: 2.5rem;
+}
+
+.size-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.size-option {
+  position: relative;
+}
+
+.size-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.size-option-label {
+  display: block;
+  padding: 1.5rem;
+  border: 2px solid var(--border-subtle);
+  border-radius: 12px;
+  background: var(--primary-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.size-option-label:hover {
+  border-color: var(--accent-maroon);
+  background: rgba(139, 21, 56, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 21, 56, 0.15);
+}
+
+.size-option input[type="radio"]:checked + .size-option-label {
+  border-color: var(--accent-maroon);
+  background: rgba(139, 21, 56, 0.1);
+  box-shadow: 0 0 0 3px rgba(139, 21, 56, 0.1);
+}
+
+.size-label {
+  display: block;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.size-price {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--accent-maroon);
+  font-weight: 500;
+}
+
 .contact-form .btn {
   width: 100%;
   padding: 1.5rem 2rem;
@@ -401,6 +463,11 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+
+  .size-options {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -433,5 +500,17 @@
   .contact-info-item,
   .faq-item {
     padding: 2rem 1.5rem;
+  }
+
+  .size-option-label {
+    padding: 1.2rem;
+  }
+
+  .size-label {
+    font-size: 1rem;
+  }
+
+  .size-price {
+    font-size: 0.9rem;
   }
 }

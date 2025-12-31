@@ -6,7 +6,8 @@
   overflow-x: hidden;
 }
 
-/* Single Large Background Icon for Entire Page */
+
+/* Single Large Background Icon for Page Content After Slideshow */
 .home::before {
   content: '';
   position: fixed;
@@ -23,75 +24,11 @@
   transition: background-position 0.1s ease-out;
 }
 
-/* Hero Section */
+/* Hero Section - Now contains slideshow */
 .hero {
   min-height: 100vh;
-  background: linear-gradient(to bottom,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(248, 249, 250, 0.8) 50%,
-    rgba(248, 249, 250, 0.9) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   position: relative;
-  padding: 0 2rem;
-}
-
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 200px;
-  background: linear-gradient(to bottom,
-    transparent 0%,
-    rgba(248, 249, 250, 0.3) 30%,
-    rgba(248, 249, 250, 0.7) 70%,
-    rgba(248, 249, 250, 1) 100%);
-  pointer-events: none;
-}
-
-.hero-content {
-  max-width: 800px;
-  z-index: 2;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 4rem 3rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-}
-
-.hero h1 {
-  font-family: 'Dancing Script', 'Pacifico', 'Brush Script MT', cursive;
-  font-size: 5.5rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  letter-spacing: 0.02em;
-  color: #722030;
-  line-height: 1.1;
-  text-shadow: 2px 2px 6px rgba(114, 32, 48, 0.4);
-  transform: rotate(-1deg);
-  display: inline-block;
-}
-
-.hero .lead {
-  font-size: 1.5rem;
-  font-weight: 300;
-  margin-bottom: 3rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  padding: 0;
 }
 
 /* About Section */
@@ -411,22 +348,6 @@
     padding-top: 70px;
   }
 
-  .hero-content {
-    padding: 3rem 2rem;
-  }
-
-  .hero h1 {
-    font-size: 3.5rem;
-  }
-
-  .hero .lead {
-    font-size: 1.3rem;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
 
   .about-content {
     grid-template-columns: 1fr;
@@ -460,17 +381,6 @@
 }
 
 @media (max-width: 480px) {
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero .lead {
-    font-size: 1.1rem;
-  }
-
-  .hero-content {
-    padding: 2rem 1.5rem;
-  }
 
   .about-text,
   .services-header,
