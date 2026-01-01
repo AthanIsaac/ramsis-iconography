@@ -4,25 +4,26 @@ import './IconSlideshow.css';
 const IconSlideshow = () => {
   const icons = [
     {
-      src: '/ramsis-iconography/uploads/icons/Christ.jpg',
-      alt: 'Christ Icon'
-    },
-    {
       src: '/ramsis-iconography/uploads/icons/Theotokos.jpg',
       alt: 'Theotokos Icon'
     },
     {
-      src: '/ramsis-iconography/uploads/icons/StAnthony.jpg',
-      alt: 'Saint Anthony Icon'
+      src: '/ramsis-iconography/uploads/icons/StAnthonyWords.jpg',
+      alt: 'Saint Anthony with Words Icon'
     },
     {
-      src: '/ramsis-iconography/uploads/icons/simon.png',
+      src: '/ramsis-iconography/uploads/icons/simon.jpg',
       alt: 'St Simon Icon'
     },
     {
-      src: '/ramsis-iconography/uploads/icons/StAnthonyWords.jpg',
-      alt: 'Saint Anthony with Words Icon'
+      src: '/ramsis-iconography/uploads/icons/Christ.jpg',
+      alt: 'Christ Icon'
+    },
+    {
+      src: '/ramsis-iconography/uploads/icons/StAnthony.jpg',
+      alt: 'Saint Anthony Icon'
     }
+
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

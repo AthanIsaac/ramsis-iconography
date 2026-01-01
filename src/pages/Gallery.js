@@ -102,6 +102,23 @@ const Gallery = () => {
                 <p>Warrior archangel depicted in traditional iconographic style with rich gold details.</p>
               </div>
             </div>
+            <div className="featured-item">
+              <img
+                src="/ramsis-iconography/uploads/icons/simon.jpg"
+                alt="Saint Simon Icon"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  border: '1px solid var(--border-subtle)',
+                  transition: 'all 0.3s ease'
+                }}
+              />
+              <div className="featured-info">
+                <h3>St Simon</h3>
+                <p>depicted in traditional iconographic style with rich gold details.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
