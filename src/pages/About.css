@@ -12,7 +12,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: url('../../public/uploads/icons/StAnthony.jpg');
+  background: url('../../public/uploads/icons/simon.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center calc(0% + var(--scroll-offset, 0px));

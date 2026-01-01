@@ -16,16 +16,12 @@ const IconSlideshow = () => {
       alt: 'Saint Anthony Icon'
     },
     {
+      src: '/ramsis-iconography/uploads/icons/simon.png',
+      alt: 'St Simon Icon'
+    },
+    {
       src: '/ramsis-iconography/uploads/icons/StAnthonyWords.jpg',
       alt: 'Saint Anthony with Words Icon'
-    },
-    {
-      src: '/ramsis-iconography/uploads/icons/history1.png',
-      alt: 'Historical Icon 1'
-    },
-    {
-      src: '/ramsis-iconography/uploads/icons/history2.png',
-      alt: 'Historical Icon 2'
     }
   ];
 
