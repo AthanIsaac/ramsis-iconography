@@ -210,14 +210,14 @@
 
 /* Size Selection Styles */
 .size-selection {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .size-options {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.75rem;
 }
 
 .size-option {
@@ -233,9 +233,9 @@
 
 .size-option-label {
   display: block;
-  padding: 1.5rem;
+  padding: 1rem;
   border: 2px solid var(--border-subtle);
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--primary-light);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -245,27 +245,27 @@
 .size-option-label:hover {
   border-color: var(--accent-maroon);
   background: rgba(139, 21, 56, 0.05);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(139, 21, 56, 0.15);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(139, 21, 56, 0.15);
 }
 
 .size-option input[type="radio"]:checked + .size-option-label {
   border-color: var(--accent-maroon);
   background: rgba(139, 21, 56, 0.1);
-  box-shadow: 0 0 0 3px rgba(139, 21, 56, 0.1);
+  box-shadow: 0 0 0 2px rgba(139, 21, 56, 0.1);
 }
 
 .size-label {
   display: block;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: var(--text-primary);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 .size-price {
   display: block;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: var(--accent-maroon);
   font-weight: 500;
 }
