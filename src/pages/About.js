@@ -161,9 +161,9 @@ const About = () => {
           <div className="biography-text">
             <h2>A Life Devoted to Sacred Art</h2>
             <p>
-              George Ramsis has dedicated over two decades to the ancient and sacred art of iconography.
-              His journey began with a profound spiritual calling that led him to study under master iconographers
-              in Greece and Russia, where he learned the traditional techniques passed down through centuries.
+              George Ramsis has dedicated over two decades to the ancient and sacred art of iconography. 
+              His journey began with a profound spiritual calling that led him to study under master iconographers in Egypt and London, 
+              where he learned the traditional techniques passed down through centuries.
             </p>
             <p>
               Born into a family with deep Orthodox Christian roots, George's artistic path was shaped by both
@@ -203,7 +203,7 @@ const About = () => {
           <div className="training-grid">
             <div className="training-item">
               <h3>Traditional Techniques</h3>
-              <p>Studied under master iconographers in Mount Athos, Greece, learning ancient egg tempera methods and gold leaf application techniques.</p>
+              <p>Studied under master iconographers in Egypt, London, learning ancient egg tempera methods and gold leaf application techniques.</p>
             </div>
             <div className="training-item">
               <h3>Theological Studies</h3>
@@ -230,11 +230,11 @@ const About = () => {
           <div className="recognition-grid">
             <div className="recognition-item">
               <h3>Church Commissions</h3>
-              <p>Over 50 churches across North America have commissioned iconostasis and sanctuary decorations.</p>
+              <p>George has contributed to 5-6 churches across North America, working on iconostasis and sanctuary decorations.</p>
             </div>
             <div className="recognition-item">
-              <h3>Private Collections</h3>
-              <p>Hundreds of families treasure personal icons created for their homes and prayer spaces.</p>
+              <h3>Icon Portfolio</h3>
+              <p>Over 20 individual icons have been created for private collections, churches, and prayer spaces.</p>
             </div>
             <div className="recognition-item">
               <h3>Teaching & Workshops</h3>
@@ -249,7 +249,7 @@ const About = () => {
         <div className="projects-content">
           <div className="projects-header">
             <h2>Projects Under Fadi Mikhail</h2>
-            <p>George Ramsis had the privilege of working under the renowned iconographer Fadi Mikhail, contributing to several significant church projects across North America. Fadi Mikhail, born in 1984, is an Egyptian-English painter and graduate from the world-renowned Slade School of Fine Art, University College London (UCL). In 2013, Fadi was commissioned by Royal Mail to produce an Icon of Christ and St Mary for their £1.88 Christmas stamp, and was also commissioned by the Coptic Church to produce 2 icons for HRH Prince of Wales.</p>
+            <p>George Ramsis had the privilege of working under the renowned iconographer Fadi Mikhail, contributing to several significant church projects across North America. Fadi Mikhail, born in 1984, is an Egyptian-English painter and graduate from the world-renowned Slade School of Fine Art, University College London (UCL).</p>
           </div>
           <div className="projects-grid">
             {Object.keys(projectsData).map((projectKey) => (
