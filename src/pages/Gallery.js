@@ -143,46 +143,6 @@ const Gallery = () => {
               <h3>Canonical Guidelines</h3>
               <p>Strict adherence to theological and artistic traditions ensures spiritual authenticity in every piece.</p>
             </div>
-            <div className="process-item">
-              <h3>Blessing & Consecration</h3>
-              <p>Completed icons receive proper blessing, transforming them from artwork into sacred objects of veneration.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Categories Section */}
-      <section className="categories-section">
-        <div className="categories-content">
-          <div className="categories-header">
-            <h2>Icon Categories</h2>
-            <p>Diverse subjects for churches, homes, and personal devotion</p>
-          </div>
-          <div className="categories-grid">
-            <div className="category-item">
-              <h3>Christ Icons</h3>
-              <p>Pantocrator, Savior, and various depictions of our Lord Jesus Christ following traditional iconographic types.</p>
-            </div>
-            <div className="category-item">
-              <h3>Theotokos Icons</h3>
-              <p>Mother of God in her many traditional forms - Hodegetria, Eleousa, Platytera, and other beloved types.</p>
-            </div>
-            <div className="category-item">
-              <h3>Saints & Martyrs</h3>
-              <p>Holy men and women, apostles, martyrs, and contemporary saints depicted in traditional iconographic style.</p>
-            </div>
-            <div className="category-item">
-              <h3>Feast Day Icons</h3>
-              <p>Major Christian feasts and celebrations - Nativity, Resurrection, Pentecost, and other liturgical scenes.</p>
-            </div>
-            <div className="category-item">
-              <h3>Archangels & Angels</h3>
-              <p>Heavenly messengers and warriors depicted in their traditional roles and appearances.</p>
-            </div>
-            <div className="category-item">
-              <h3>Custom Commissions</h3>
-              <p>Personalized icons for specific devotional needs, family patrons, or unique spiritual requirements.</p>
-            </div>
           </div>
         </div>
       </section>
