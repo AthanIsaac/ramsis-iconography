@@ -65,7 +65,7 @@ const Header = () => {
             <li>
               <Link
                 to="/contact"
-                className={isActive('/contact') ? 'active' : ''}
+                className={`contact-button ${isActive('/contact') ? 'active' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact

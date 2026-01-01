@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './IconSlideshow.css';
 
 const IconSlideshow = () => {
@@ -26,38 +26,127 @@ const IconSlideshow = () => {
 
   ];
 
+  // Create extended array with first slide duplicated at the end for infinite loop
+  const extendedIcons = [...icons, icons[0]];
+  
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const intervalRef = useRef(null);
+  const animationTimeoutRef = useRef(null);
+
+  // Function to start/restart the timer
+  const startTimer = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    intervalRef.current = setInterval(() => {
+      setIsAnimating(true);
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+      // Clear animation state after transition completes
+      if (animationTimeoutRef.current) {
+        clearTimeout(animationTimeoutRef.current);
+      }
+      animationTimeoutRef.current = setTimeout(() => {
+        setIsAnimating(false);
+      }, 800); // Match CSS transition duration
+    }, 4000); // Change slide every 4 seconds
+  };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % icons.length);
-    }, 4000); // Change slide every 4 seconds
+    startTimer();
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+      if (animationTimeoutRef.current) {
+        clearTimeout(animationTimeoutRef.current);
+      }
+    };
+  }, []);
 
-    return () => clearInterval(interval);
-  }, [icons.length]);
+  // Handle the infinite loop reset
+  useEffect(() => {
+    if (currentIndex === icons.length) {
+      // We're at the duplicate first slide, reset to actual first slide
+      const timer = setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(0);
+        // Re-enable transition after reset
+        setTimeout(() => {
+          setIsTransitioning(true);
+          setIsAnimating(false);
+        }, 50);
+      }, 800); // Wait for transition to complete
+      
+      return () => clearTimeout(timer);
+    }
+  }, [currentIndex, icons.length]);
 
   const goToSlide = (index) => {
+    if (isAnimating) return; // Prevent interaction during animation
+    
+    setIsAnimating(true);
+    setIsTransitioning(true);
     setCurrentIndex(index);
+    startTimer(); // Reset timer when dot is clicked
+    
+    // Clear animation state after transition completes
+    if (animationTimeoutRef.current) {
+      clearTimeout(animationTimeoutRef.current);
+    }
+    animationTimeoutRef.current = setTimeout(() => {
+      setIsAnimating(false);
+    }, 800);
   };
 
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? icons.length - 1 : prevIndex - 1
-    );
+    if (isAnimating) return; // Prevent interaction during animation
+    
+    setIsAnimating(true);
+    setIsTransitioning(true);
+    setCurrentIndex((prevIndex) => {
+      if (prevIndex === 0) {
+        return icons.length - 1;
+      }
+      return prevIndex - 1;
+    });
+    startTimer(); // Reset timer when arrow is clicked
+    
+    // Clear animation state after transition completes
+    if (animationTimeoutRef.current) {
+      clearTimeout(animationTimeoutRef.current);
+    }
+    animationTimeoutRef.current = setTimeout(() => {
+      setIsAnimating(false);
+    }, 800);
   };
 
   const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % icons.length);
+    if (isAnimating) return; // Prevent interaction during animation
+    
+    setIsAnimating(true);
+    setIsTransitioning(true);
+    setCurrentIndex((prevIndex) => prevIndex + 1);
+    startTimer(); // Reset timer when arrow is clicked
+    
+    // Clear animation state after transition completes
+    if (animationTimeoutRef.current) {
+      clearTimeout(animationTimeoutRef.current);
+    }
+    animationTimeoutRef.current = setTimeout(() => {
+      setIsAnimating(false);
+    }, 800);
   };
 
   return (
     <div className="icon-slideshow">
       <div className="slideshow-container">
-        <div 
-          className="slides-wrapper"
+        <div
+          className={`slides-wrapper ${isTransitioning ? 'transitioning' : ''}`}
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          {icons.map((icon, index) => (
+          {extendedIcons.map((icon, index) => (
             <div key={index} className="slide">
               <img
                 src={icon.src}
@@ -69,10 +158,18 @@ const IconSlideshow = () => {
         </div>
         
         {/* Navigation arrows */}
-        <button className="nav-arrow nav-arrow-left" onClick={goToPrevious}>
+        <button
+          className={`nav-arrow nav-arrow-left ${isAnimating ? 'disabled' : ''}`}
+          onClick={goToPrevious}
+          disabled={isAnimating}
+        >
           &#8249;
         </button>
-        <button className="nav-arrow nav-arrow-right" onClick={goToNext}>
+        <button
+          className={`nav-arrow nav-arrow-right ${isAnimating ? 'disabled' : ''}`}
+          onClick={goToNext}
+          disabled={isAnimating}
+        >
           &#8250;
         </button>
         
@@ -81,8 +178,9 @@ const IconSlideshow = () => {
           {icons.map((_, index) => (
             <button
               key={index}
-              className={`dot ${index === currentIndex ? 'active' : ''}`}
+              className={`dot ${index === (currentIndex % icons.length) ? 'active' : ''} ${isAnimating ? 'disabled' : ''}`}
               onClick={() => goToSlide(index)}
+              disabled={isAnimating}
             />
           ))}
         </div>
