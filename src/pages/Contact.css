@@ -460,6 +460,11 @@
     padding-top: 70px;
   }
 
+  /* Extend background height on mobile to prevent white space */
+  .contact::before {
+    height: 200vh;
+  }
+
   .hero-content {
     padding: 3rem 2rem;
   }

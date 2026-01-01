@@ -638,6 +638,11 @@
     padding-top: 70px;
   }
 
+  /* Extend background height on mobile to prevent white space */
+  .history::before {
+    height: 200vh;
+  }
+
   .hero-content {
     padding: 3rem 2rem;
   }
