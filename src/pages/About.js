@@ -151,7 +151,7 @@ const About = () => {
       <section className="hero">
         <div className="hero-content">
           <h1>About George Ramsis</h1>
-          <p className="lead">Master iconographer dedicated to preserving sacred traditions through contemporary artistry</p>
+          <p className="lead">Iconographer dedicated to preserving sacred traditions through contemporary artistry</p>
         </div>
       </section>
 
@@ -215,7 +215,7 @@ const About = () => {
             </div>
             <div className="training-item">
               <h3>Gold Leaf Application</h3>
-              <p>Master of traditional gold leaf techniques, creating luminous halos and sacred details that reflect divine light.</p>
+              <p>Traditional gold leaf techniques, creating luminous halos and sacred details that reflect divine light.</p>
             </div>
           </div>
         </div>

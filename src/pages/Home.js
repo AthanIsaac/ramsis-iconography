@@ -43,7 +43,7 @@ const Home = () => {
           <div className="about-image">
             <img
               src="/ramsis-iconography/uploads/icons/iconographer.jpg"
-              alt="George Ramsis - Master Iconographer"
+              alt="George Ramsis - Iconographer"
               style={{
                 width: '100%',
                 height: '100%',
@@ -70,7 +70,7 @@ const Home = () => {
             </div>
             <div className="service-item">
               <h3>Church Commissions</h3>
-              <p>Large-scale iconostasis and sanctuary decoration projects for Orthodox and Catholic communities.</p>
+              <p>Large-scale iconostasis and sanctuary decoration projects for Orthodox communities.</p>
             </div>
             <div className="service-item">
               <h3>Private Collections</h3>

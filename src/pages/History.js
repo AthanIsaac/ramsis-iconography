@@ -222,7 +222,7 @@ const History = () => {
               This living tradition bridges nearly two millennia of Christian art and devotion.
             </p>
             <p>
-              Master iconographers like George Ramsis carry forward this sacred heritage, ensuring that
+              Master iconographers carry forward this sacred heritage, ensuring that
               the spiritual and artistic wisdom of the Coptic tradition remains vibrant and accessible
               to new generations of believers and art lovers worldwide.
             </p>
