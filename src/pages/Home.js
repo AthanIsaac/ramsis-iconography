@@ -30,7 +30,7 @@ const Home = () => {
           <div className="about-text">
             <h2>Sacred Artistry</h2>
             <p>
-              With over two decades of dedication to the ancient art of iconography,
+              With over a decade of dedication to the ancient art of iconography,
               George Ramsis creates sacred works that bridge the divine and earthly realms.
             </p>
             <p>

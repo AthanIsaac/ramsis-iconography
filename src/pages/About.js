@@ -161,7 +161,7 @@ const About = () => {
           <div className="biography-text">
             <h2>A Life Devoted to Sacred Art</h2>
             <p>
-              George Ramsis has dedicated over two decades to the ancient and sacred art of iconography. 
+              George Ramsis has dedicated over a decade to the ancient and sacred art of iconography. 
               His journey began with a profound spiritual calling that led him to study under master iconographers in Egypt and London, 
               where he learned the traditional techniques passed down through centuries.
             </p>
