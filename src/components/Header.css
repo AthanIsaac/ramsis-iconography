@@ -324,6 +324,11 @@
     border-left: 3px solid transparent;
   }
 
+  /* Remove underlines on mobile */
+  .nav a::after {
+    display: none;
+  }
+
   .nav a:hover {
     background: var(--hover-overlay);
     border-left-color: var(--accent-maroon);
