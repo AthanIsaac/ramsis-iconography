@@ -125,8 +125,8 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Conditional Size Selection for Personal Icons */}
-            {formData.projectType === 'personal-icon' && (
+            {/* Conditional Size Selection for Personal and Family Icons */}
+            {(formData.projectType === 'personal-icon' || formData.projectType === 'family-icon') && (
               <div className="form-group size-selection">
                 <label htmlFor="size">Icon Size *</label>
                 <div className="size-options">

@@ -119,6 +119,23 @@ const Gallery = () => {
                 <p>depicted in traditional iconographic style with rich gold details.</p>
               </div>
             </div>
+            <div className="featured-item">
+              <img
+                src="/ramsis-iconography/uploads/icons/crucifix.png"
+                alt="Crucifix Icon"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  border: '1px solid var(--border-subtle)',
+                  transition: 'all 0.3s ease'
+                }}
+              />
+              <div className="featured-info">
+                <h3>Crucifix</h3>
+                <p>Sacred crucifix icon depicting Christ's sacrifice, created with traditional iconographic techniques.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -151,26 +168,26 @@ const Gallery = () => {
       <section className="testimonials-section">
         <div className="testimonials-content">
           <div className="testimonials-header">
-            <h2>Client Testimonials</h2>
+            <h2>Testimonials</h2>
             <p>Words from those who have commissioned sacred art</p>
           </div>
           <div className="testimonials-grid">
             <div className="testimonial-item">
-              <p>"George's icon of Christ has transformed our family's prayer life. The spiritual presence emanating from this sacred work is truly remarkable."</p>
+              <p>"I am a big fan of George's work! In the last few years his icons have become among some of the best in the world! He is creative and flexible and work with you to get the icon that you want that is both theologically sound and spiritually inspired."</p>
               <div className="testimonial-author">
-                <strong>— Father Michael, St. Mary Orthodox Church</strong>
+                <strong>— Archdeacon Mark Solomon</strong>
+              </div>
+            </div>
+                        <div className="testimonial-item">
+              <p>"The icon was beautiful, and the process was seamless. George was professional, responsive, and thorough in explaining the iconography, with regular check-ins and timely delivery. I look forward to future commissions. God bless his work!"</p>
+              <div className="testimonial-author">
+                <strong>— Steven Loza, Washington</strong>
               </div>
             </div>
             <div className="testimonial-item">
-              <p>"The attention to theological detail and traditional technique is extraordinary. This is not just art—it's a window to heaven."</p>
+              <p>"I've had the pleasure of working with George as colleagues for some years. We've painted various murals together all over the world. During this time I've had the honour of witnessing his incredible artistic and personal development that most artists can only dream of. Serving God in any manner is such a great privilege, and painting icons with George is one of life's quiet privileges that I cherish each time we do it. His work and its beautiful quality speaks for itself. Add this to his wonderful humility for this vocation and you've got a beautiful synergy of joy."</p>
               <div className="testimonial-author">
-                <strong>— Maria K., Private Collector</strong>
-              </div>
-            </div>
-            <div className="testimonial-item">
-              <p>"Our church's iconostasis by George has become a focal point for worship and contemplation. The craftsmanship is unparalleled."</p>
-              <div className="testimonial-author">
-                <strong>— Archbishop John, Holy Trinity Cathedral</strong>
+                <strong>— Fadi Mikhail | Master Iconographer | UK</strong>
               </div>
             </div>
           </div>

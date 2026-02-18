@@ -230,11 +230,11 @@ const About = () => {
           <div className="recognition-grid">
             <div className="recognition-item">
               <h3>Church Commissions</h3>
-              <p>George has contributed to 5-6 churches across North America, working on iconostasis and sanctuary decorations.</p>
+              <p>George has contributed to many churches across North America, working on iconostasis and sanctuary decorations.</p>
             </div>
             <div className="recognition-item">
               <h3>Icon Portfolio</h3>
-              <p>Over 20 individual icons have been created for private collections, churches, and prayer spaces.</p>
+              <p>Dozens of individual icons have been created for private collections, churches, and prayer spaces.</p>
             </div>
             <div className="recognition-item">
               <h3>Teaching & Workshops</h3>
