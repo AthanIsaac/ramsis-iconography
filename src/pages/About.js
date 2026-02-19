@@ -6,7 +6,7 @@ const About = () => {
   // Project data with all web-compatible images
   const projectsData = {
     athanasiusFlorida: {
-      name: "St. Athanasius Church - Florida",
+      name: "St. Athanasius American Coptic Orthodox Church - Orlando, FL",
       images: [
         "38BBED8E-36B7-42FB-9F75-2D1BE18BA0A7.JPG",
         "ECFED977-68A5-478E-A5FB-57632760556B.JPG",
@@ -24,7 +24,7 @@ const About = () => {
       ]
     },
     crossDallas: {
-      name: "Holy Cross Church - Dallas",
+      name: "Holy Cross Coptic Orthodox Church - Austin, TX",
       images: [
         "6b4f0a0b-ac39-4e99-87b6-97985d94bc98.png.PNG",
         "3716adf2-7d7d-4742-99b0-92d40cc722f8.png.PNG",
@@ -37,7 +37,7 @@ const About = () => {
       ]
     },
     maryClearwater: {
-      name: "St. Mary Church - Clearwater",
+      name: "St. Mary and St. Mina Coptic Orthodox Church - Clearwater, FL",
       images: [
         "IMG_3055.JPG",
         "IMG_3069.JPG",
@@ -48,7 +48,7 @@ const About = () => {
       ]
     },
     paulCali: {
-      name: "St. Paul Church - California",
+      name: "St. Paul American Coptic Orthodox Church - Irvine, CA",
       images: [
         "24ee0597-55c9-4cf9-af4d-0b1f879d1e49.JPG",
         "32cfbe90-7f95-4e60-b3b8-1cf08bd52732.JPG",
@@ -161,7 +161,7 @@ const About = () => {
           <div className="biography-text">
             <h2>A Life Devoted to Sacred Art</h2>
             <p>
-              George Ramsis has dedicated over a decade to the ancient and sacred art of iconography. 
+              George Ramsis has dedicated years to the ancient and sacred art of iconography. 
               His journey began with a profound spiritual calling that led him to study under master iconographers in Egypt and London, 
               where he learned the traditional techniques passed down through centuries.
             </p>

@@ -8,6 +8,10 @@ const IconSlideshow = () => {
       alt: 'Theotokos Icon'
     },
     {
+      src: '/ramsis-iconography/uploads/icons/Christ.jpg',
+      alt: 'Christ Icon'
+    },
+    {
       src: '/ramsis-iconography/uploads/icons/StAnthonyWords.jpg',
       alt: 'Saint Anthony with Words Icon'
     },
@@ -16,14 +20,13 @@ const IconSlideshow = () => {
       alt: 'St Simon Icon'
     },
     {
-      src: '/ramsis-iconography/uploads/icons/Christ.jpg',
-      alt: 'Christ Icon'
-    },
-    {
       src: '/ramsis-iconography/uploads/icons/StAnthony.jpg',
       alt: 'Saint Anthony Icon'
+    },
+    {
+      src: '/ramsis-iconography/uploads/icons/crucifix.png',
+      alt: 'Crucifix Icon'
     }
-
   ];
 
   // Create extended array with first slide duplicated at the end for infinite loop
