@@ -270,11 +270,99 @@
   font-weight: 500;
 }
 
+/* Form Status Messages */
+.form-message {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 2px solid;
+  animation: slideIn 0.3s ease-out;
+}
+
+.form-message .message-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-message svg {
+  flex-shrink: 0;
+}
+
+.success-message {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: #22c55e;
+  color: #15803d;
+}
+
+.success-message svg {
+  color: #22c55e;
+}
+
+.error-message {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+  color: #dc2626;
+}
+
+.error-message svg {
+  color: #ef4444;
+}
+
+.error-fallback {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 0;
+}
+
+.error-fallback a {
+  color: inherit;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.error-fallback a:hover {
+  text-decoration: none;
+}
+
+/* Button Loading States */
 .contact-form .btn {
   width: 100%;
   padding: 1.5rem 2rem;
   font-size: 1.1rem;
   margin-top: 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  /* Remove transition for instant feedback */
+}
+
+.contact-form .btn.loading {
+  background: var(--accent-maroon);
+  opacity: 0.7;
+  cursor: not-allowed;
+  /* Simple loading state - no animations */
+}
+
+.contact-form .btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Contact Info Section */

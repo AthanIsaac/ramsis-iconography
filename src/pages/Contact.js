@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
 
 const Contact = () => {
@@ -9,6 +10,13 @@ const Contact = () => {
     projectType: '',
     size: '',
     message: ''
+  });
+
+  const [formStatus, setFormStatus] = useState({
+    isSubmitting: false,
+    isSuccess: false,
+    isError: false,
+    errorMessage: ''
   });
 
   const sizeOptions = [
@@ -33,18 +41,185 @@ const Contact = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Helper function to get estimated price
+  const getEstimatedPrice = () => {
+    if (formData.projectType === 'personal-icon' || formData.projectType === 'family-icon') {
+      const selectedSize = sizeOptions.find(option => option.value === formData.size);
+      return selectedSize?.price ? `$${selectedSize.price}` : 'Custom Quote';
+    }
+    return 'Custom Quote';
+  };
+
+  // Helper function to format project type for display
+  const formatProjectType = (type) => {
+    const typeMap = {
+      'personal-icon': 'Personal Icon',
+      'family-icon': 'Family Icon',
+      'church-commission': 'Church Commission',
+      'iconostasis': 'Iconostasis Project',
+      'consultation': 'Consultation'
+    };
+    return typeMap[type] || type;
+  };
+
+  // Reset form status messages after a delay
+  useEffect(() => {
+    if (formStatus.isSuccess || formStatus.isError) {
+      const timer = setTimeout(() => {
+        setFormStatus(prev => ({
+          ...prev,
+          isSuccess: false,
+          isError: false,
+          errorMessage: ''
+        }));
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [formStatus.isSuccess, formStatus.isError]);
+
+  // Enhanced form validation
+  const validateForm = () => {
+    const errors = [];
+    
+    if (!formData.name.trim()) {
+      errors.push('Name is required');
+    }
+    
+    if (!formData.email.trim()) {
+      errors.push('Email is required');
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.push('Please enter a valid email address');
+    }
+    
+    if (!formData.projectType) {
+      errors.push('Please select a project type');
+    }
+    
+    if ((formData.projectType === 'personal-icon' || formData.projectType === 'family-icon') && !formData.size) {
+      errors.push('Please select an icon size');
+    }
+    
+    if (!formData.message.trim()) {
+      errors.push('Project details are required');
+    } else if (formData.message.trim().length < 10) {
+      errors.push('Please provide more detailed project information (at least 10 characters)');
+    }
+    
+    return errors;
+  };
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+    
+    // Clear any existing error messages when user starts typing
+    if (formStatus.isError) {
+      setFormStatus(prev => ({
+        ...prev,
+        isError: false,
+        errorMessage: ''
+      }));
+    }
   };
 
-  const handleSubmit = (e) => {
+  const resetForm = () => {
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      projectType: '',
+      size: '',
+      message: ''
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // You would typically send this data to a server
+    
+    // Validate form before submission
+    const validationErrors = validateForm();
+    if (validationErrors.length > 0) {
+      setFormStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        isError: true,
+        errorMessage: validationErrors.join('. ')
+      });
+      return;
+    }
+    
+    // Set loading state
+    setFormStatus({
+      isSubmitting: true,
+      isSuccess: false,
+      isError: false,
+      errorMessage: ''
+    });
+
+    try {
+      // Prepare template parameters for EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone || 'Not provided',
+        project_type: formatProjectType(formData.projectType),
+        size: formData.size || 'Not applicable',
+        estimated_price: getEstimatedPrice(),
+        message: formData.message,
+        submission_date: new Date().toLocaleString()
+      };
+
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      );
+
+      if (result.status === 200) {
+        // Success
+        setFormStatus({
+          isSubmitting: false,
+          isSuccess: true,
+          isError: false,
+          errorMessage: ''
+        });
+        
+        // Reset form after successful submission
+        resetForm();
+      } else {
+        throw new Error('Failed to send email');
+      }
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      
+      // Determine error message based on error type
+      let errorMessage = 'Failed to send your commission request. Please try again.';
+      
+      if (error.text) {
+        if (error.text.includes('insufficient authentication scopes') || error.status === 412) {
+          errorMessage = 'Email service configuration needs to be updated. Please contact us directly while we fix this.';
+        } else if (error.text.includes('rate limit') || error.text.includes('429')) {
+          errorMessage = 'Too many requests. Please wait a few minutes and try again.';
+        } else if (error.text.includes('Invalid') || error.text.includes('403')) {
+          errorMessage = 'Service temporarily unavailable. Please contact us directly.';
+        } else if (error.text.includes('network') || error.text.includes('timeout')) {
+          errorMessage = 'Network error. Please check your connection and try again.';
+        }
+      } else if (error.name === 'TypeError' && error.message.includes('fetch')) {
+        errorMessage = 'Network connection error. Please check your internet connection.';
+      }
+      
+      setFormStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        isError: true,
+        errorMessage
+      });
+    }
   };
 
   return (
@@ -70,6 +245,32 @@ const Contact = () => {
           </div>
           
           <form className="contact-form" onSubmit={handleSubmit}>
+            {/* Status Messages */}
+            {formStatus.isSuccess && (
+              <div className="form-message success-message">
+                <div className="message-content">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  </svg>
+                  <span>Thank you! Your commission request has been sent successfully. We'll respond within 24-48 hours.</span>
+                </div>
+              </div>
+            )}
+            
+            {formStatus.isError && (
+              <div className="form-message error-message">
+                <div className="message-content">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                  <span>{formStatus.errorMessage}</span>
+                </div>
+                <p className="error-fallback">
+                  You can also reach us directly at <a href="mailto:ramsis.icons@gmail.com">ramsis.icons@gmail.com</a> or call <a href="tel:+14253456483">(425) 345-6483</a>
+                </p>
+              </div>
+            )}
+
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="name">Full Name *</label>
@@ -166,8 +367,12 @@ const Contact = () => {
               ></textarea>
             </div>
 
-            <button type="submit" className="btn btn-primary">
-              Send Commission Request
+            <button
+              type="submit"
+              className={`btn btn-primary ${formStatus.isSubmitting ? 'loading' : ''}`}
+              disabled={formStatus.isSubmitting}
+            >
+              {formStatus.isSubmitting ? 'Sending Request...' : 'Send Commission Request'}
             </button>
           </form>
         </div>
