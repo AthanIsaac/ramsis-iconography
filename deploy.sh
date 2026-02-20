@@ -13,6 +13,11 @@ COMMIT_MESSAGE="$1"
 echo "🚀 Starting deployment process..."
 echo "📝 Commit message: $COMMIT_MESSAGE"
 
+# Set environment variables for build
+export REACT_APP_EMAILJS_SERVICE_ID=service_1pazkqa
+export REACT_APP_EMAILJS_TEMPLATE_ID=template_jr8tm6p
+export REACT_APP_EMAILJS_PUBLIC_KEY=LgFDBjwNqV8c65u6t
+
 # Add all changes
 echo "📦 Adding all changes..."
 git add .
@@ -29,6 +34,10 @@ else
     echo "⬆️  Pushing to GitHub..."
     git push origin main
 fi
+
+# Build with environment variables
+echo "🏗️  Building with environment variables..."
+npm run build
 
 # Deploy to GitHub Pages
 echo "🌐 Deploying to GitHub Pages..."
