@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:prod": "REACT_APP_EMAILJS_SERVICE_ID=service_1pazkqa REACT_APP_EMAILJS_TEMPLATE_ID=template_jr8tm6p REACT_APP_EMAILJS_PUBLIC_KEY=LgFDBjwNqV8c65u6t react-scripts build",
+    "build:prod": "node scripts/build-with-env.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build:prod",
