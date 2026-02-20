@@ -162,7 +162,7 @@ const Contact = () => {
       // Version and debug info
       const buildTimestamp = new Date().toISOString();
       console.log('=== EmailJS Debug Info ===');
-      console.log('VERSION: 2.0 - Built at:', buildTimestamp);
+      console.log('VERSION: 3.0 - Built at:', buildTimestamp);
       console.log('SERVICE_ID:', process.env.REACT_APP_EMAILJS_SERVICE_ID);
       console.log('TEMPLATE_ID:', process.env.REACT_APP_EMAILJS_TEMPLATE_ID);
       console.log('PUBLIC_KEY:', process.env.REACT_APP_EMAILJS_PUBLIC_KEY);

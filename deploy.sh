@@ -13,13 +13,11 @@ COMMIT_MESSAGE="$1"
 echo "🚀 Starting deployment process..."
 echo "📝 Commit message: $COMMIT_MESSAGE"
 
-# Create temporary .env.production file for build
-echo "Creating temporary .env.production file..."
-cat > .env.production << EOF
-REACT_APP_EMAILJS_SERVICE_ID=service_1pazkqa
-REACT_APP_EMAILJS_TEMPLATE_ID=template_jr8tm6p
-REACT_APP_EMAILJS_PUBLIC_KEY=LgFDBjwNqV8c65u6t
-EOF
+# Set environment variables directly for the build process
+echo "Setting environment variables for build..."
+export REACT_APP_EMAILJS_SERVICE_ID=service_1pazkqa
+export REACT_APP_EMAILJS_TEMPLATE_ID=template_jr8tm6p
+export REACT_APP_EMAILJS_PUBLIC_KEY=LgFDBjwNqV8c65u6t
 
 # Add all changes
 echo "📦 Adding all changes..."
@@ -46,9 +44,8 @@ npm run build
 echo "🌐 Deploying to GitHub Pages..."
 npm run deploy
 
-# Clean up temporary file
-echo "🧹 Cleaning up temporary files..."
-rm -f .env.production
+# No cleanup needed for environment variables
+echo "🧹 Environment variables set for build process..."
 
 echo "✅ Deployment complete!"
 echo "🔗 Your site is available at: https://AthanIsaac.github.io/ramsis-iconography"
