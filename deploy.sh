@@ -13,11 +13,8 @@ COMMIT_MESSAGE="$1"
 echo "🚀 Starting deployment process..."
 echo "📝 Commit message: $COMMIT_MESSAGE"
 
-# Set environment variables directly for the build process
-echo "Setting environment variables for build..."
-export REACT_APP_EMAILJS_SERVICE_ID=service_1pazkqa
-export REACT_APP_EMAILJS_TEMPLATE_ID=template_jr8tm6p
-export REACT_APP_EMAILJS_PUBLIC_KEY=LgFDBjwNqV8c65u6t
+# Environment variables are now set in package.json build:prod script
+echo "Using build:prod script with embedded environment variables..."
 
 # Add all changes
 echo "📦 Adding all changes..."
