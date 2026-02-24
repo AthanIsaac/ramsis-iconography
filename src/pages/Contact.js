@@ -195,10 +195,10 @@ const Contact = () => {
 
       // Send email using EmailJS
       const result = await emailjs.send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        'service_1pazkqa',
+        'template_jr8tm6p',
         templateParams,
-        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+        'LgFDBjwNqV8c65u6t'
       );
 
       if (result.status === 200) {
