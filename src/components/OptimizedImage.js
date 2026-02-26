@@ -16,7 +16,7 @@ const OptimizedImage = ({
 
   // Generate optimized image paths
   const getOptimizedPaths = (originalSrc) => {
-    if (!originalSrc) return { webp: '', jpeg: '' };
+    if (!originalSrc) return { webp: '', jpeg: '', fallback: '' };
     
     // Extract path components
     const pathParts = originalSrc.split('/');
@@ -38,7 +38,8 @@ const OptimizedImage = ({
       
       return {
         webp: `${basePath}/${fileNameWithoutExt}${suffix}.webp`,
-        jpeg: `${basePath}/${fileNameWithoutExt}${suffix}.jpg`
+        jpeg: `${basePath}/${fileNameWithoutExt}${suffix}.jpg`,
+        fallback: originalSrc
       };
     } else if (isProject) {
       // Extract project folder name
@@ -55,15 +56,16 @@ const OptimizedImage = ({
       
       return {
         webp: `${basePath}/${fileNameWithoutExt}${suffix}.webp`,
-        jpeg: `${basePath}/${fileNameWithoutExt}${suffix}.jpg`
+        jpeg: `${basePath}/${fileNameWithoutExt}${suffix}.jpg`,
+        fallback: originalSrc
       };
     }
     
     // Fallback to original
-    return { webp: originalSrc, jpeg: originalSrc };
+    return { webp: originalSrc, jpeg: originalSrc, fallback: originalSrc };
   };
 
-  const { webp, jpeg } = getOptimizedPaths(src);
+  const { webp, jpeg, fallback } = getOptimizedPaths(src);
 
   useEffect(() => {
     if (loading === 'lazy') {
@@ -127,7 +129,7 @@ const OptimizedImage = ({
           
           {/* JPEG fallback for older browsers */}
           <img
-            src={hasError ? src : jpeg} // Fallback to original if optimized fails
+            src={hasError ? fallback : jpeg} // Fallback to original if optimized fails
             alt={alt}
             onLoad={handleLoad}
             onError={handleError}
