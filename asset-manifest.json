@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/ramsis-iconography/static/css/main.d745475a.css",
-    "main.js": "/ramsis-iconography/static/js/main.40b7274c.js",
+    "main.css": "/ramsis-iconography/static/css/main.5fd61404.css",
+    "main.js": "/ramsis-iconography/static/js/main.49a19f0e.js",
     "static/js/453.39134082.chunk.js": "/ramsis-iconography/static/js/453.39134082.chunk.js",
     "static/media/history1.png": "/ramsis-iconography/static/media/history1.3a7b029fe249fceed38f.png",
     "static/media/Theotokos.jpg": "/ramsis-iconography/static/media/Theotokos.a65bf46f842c4d240821.jpg",
     "static/media/StAnthonyWords.jpg": "/ramsis-iconography/static/media/StAnthonyWords.708a40e35ad41d489184.jpg",
     "static/media/Christ.jpg": "/ramsis-iconography/static/media/Christ.75d250d9319b121ae55b.jpg",
-    "static/media/severus.png": "/ramsis-iconography/static/media/severus.f1581541fcfa8630052a.png",
+    "static/media/severus.png": "/ramsis-iconography/static/media/severus.40288bb0dae1f39fdc74.png",
     "index.html": "/ramsis-iconography/index.html",
-    "main.d745475a.css.map": "/ramsis-iconography/static/css/main.d745475a.css.map",
-    "main.40b7274c.js.map": "/ramsis-iconography/static/js/main.40b7274c.js.map",
+    "main.5fd61404.css.map": "/ramsis-iconography/static/css/main.5fd61404.css.map",
+    "main.49a19f0e.js.map": "/ramsis-iconography/static/js/main.49a19f0e.js.map",
     "453.39134082.chunk.js.map": "/ramsis-iconography/static/js/453.39134082.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d745475a.css",
-    "static/js/main.40b7274c.js"
+    "static/css/main.5fd61404.css",
+    "static/js/main.49a19f0e.js"
   ]
 }
