@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import OptimizedImage from './OptimizedImage';
 import './IconSlideshow.css';
 
 const IconSlideshow = () => {
@@ -151,10 +152,12 @@ const IconSlideshow = () => {
         >
           {extendedIcons.map((icon, index) => (
             <div key={index} className="slide">
-              <img
+              <OptimizedImage
                 src={icon.src}
                 alt={icon.alt}
+                size="large"
                 className="slide-image"
+                loading="eager"
               />
             </div>
           ))}

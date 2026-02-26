@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import OptimizedImage from '../components/OptimizedImage';
 import './Gallery.css';
 
 const Gallery = () => {
@@ -35,14 +36,11 @@ const Gallery = () => {
           </div>
           <div className="featured-grid">
             <div className="featured-item">
-              <img
+              <OptimizedImage
                 src="/ramsis-iconography/uploads/icons/Christ.jpg"
                 alt="Christ Pantocrator Icon"
+                size="medium"
                 style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  border: '1px solid var(--border-subtle)',
                   transition: 'all 0.3s ease'
                 }}
               />
@@ -52,14 +50,11 @@ const Gallery = () => {
               </div>
             </div>
             <div className="featured-item">
-              <img
+              <OptimizedImage
                 src="/ramsis-iconography/uploads/icons/Theotokos.jpg"
                 alt="Theotokos and Child Icon"
+                size="medium"
                 style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  border: '1px solid var(--border-subtle)',
                   transition: 'all 0.3s ease'
                 }}
               />
@@ -69,14 +64,11 @@ const Gallery = () => {
               </div>
             </div>
             <div className="featured-item">
-              <img
+              <OptimizedImage
                 src="/ramsis-iconography/uploads/icons/StAnthony.jpg"
                 alt="Saint Anthony Icon"
+                size="medium"
                 style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  border: '1px solid var(--border-subtle)',
                   transition: 'all 0.3s ease'
                 }}
               />
@@ -86,14 +78,11 @@ const Gallery = () => {
               </div>
             </div>
             <div className="featured-item">
-              <img
+              <OptimizedImage
                 src="/ramsis-iconography/uploads/icons/StAnthonyWords.jpg"
                 alt="Saint Anthony with Words Icon"
+                size="medium"
                 style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  border: '1px solid var(--border-subtle)',
                   transition: 'all 0.3s ease'
                 }}
               />
@@ -103,14 +92,11 @@ const Gallery = () => {
               </div>
             </div>
             <div className="featured-item">
-              <img
+              <OptimizedImage
                 src="/ramsis-iconography/uploads/icons/simon.jpg"
                 alt="Saint Simon Icon"
+                size="medium"
                 style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  border: '1px solid var(--border-subtle)',
                   transition: 'all 0.3s ease'
                 }}
               />
@@ -120,14 +106,11 @@ const Gallery = () => {
               </div>
             </div>
             <div className="featured-item">
-              <img
+              <OptimizedImage
                 src="/ramsis-iconography/uploads/icons/crucifix.png"
                 alt="Crucifix Icon"
+                size="medium"
                 style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  border: '1px solid var(--border-subtle)',
                   transition: 'all 0.3s ease'
                 }}
               />

@@ -21,6 +21,7 @@
     "build:prod": "node scripts/build-with-env.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "optimize-images": "node scripts/optimize-images.js",
     "predeploy": "npm run build:prod",
     "deploy": "gh-pages -d build"
   },
@@ -43,6 +44,11 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0"
+    "gh-pages": "^6.3.0",
+    "imagemin": "^9.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^10.0.0",
+    "imagemin-webp": "^8.0.0",
+    "sharp": "^0.34.5"
   }
 }
