@@ -161,23 +161,6 @@ const Contact = () => {
     try {
       // Version and debug info
       const buildTimestamp = new Date().toISOString();
-      console.log('=== EmailJS Debug Info ===');
-      console.log('VERSION: 5.0 - Built at:', buildTimestamp);
-      console.log('SERVICE_ID:', process.env.REACT_APP_EMAILJS_SERVICE_ID);
-      console.log('TEMPLATE_ID:', process.env.REACT_APP_EMAILJS_TEMPLATE_ID);
-      console.log('PUBLIC_KEY:', process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
-      console.log('NODE_ENV:', process.env.NODE_ENV);
-      
-      // Check if any are undefined
-      if (!process.env.REACT_APP_EMAILJS_SERVICE_ID) {
-        throw new Error('REACT_APP_EMAILJS_SERVICE_ID is not defined');
-      }
-      if (!process.env.REACT_APP_EMAILJS_TEMPLATE_ID) {
-        throw new Error('REACT_APP_EMAILJS_TEMPLATE_ID is not defined');
-      }
-      if (!process.env.REACT_APP_EMAILJS_PUBLIC_KEY) {
-        throw new Error('REACT_APP_EMAILJS_PUBLIC_KEY is not defined');
-      }
       
       // Prepare template parameters for EmailJS
       const templateParams = {
