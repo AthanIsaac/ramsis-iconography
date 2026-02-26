@@ -158,10 +158,7 @@ const Contact = () => {
       errorMessage: ''
     });
 
-    try {
-      // Version and debug info
-      const buildTimestamp = new Date().toISOString();
-      
+    try {      
       // Prepare template parameters for EmailJS
       const templateParams = {
         from_name: formData.name,
