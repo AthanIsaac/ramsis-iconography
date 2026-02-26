@@ -175,6 +175,19 @@
   cursor: pointer;
 }
 
+/* Landscape item styles */
+.landscape-item {
+  /* Remove padding since there's no featured-info */
+  padding: 0;
+}
+
+.landscape-item img {
+  aspect-ratio: 5/4;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+}
+
 .featured-item img:hover {
   border-color: var(--accent-maroon) !important;
 }

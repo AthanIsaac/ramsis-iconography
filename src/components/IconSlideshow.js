@@ -26,6 +26,11 @@ const IconSlideshow = () => {
     {
       src: '/ramsis-iconography/uploads/icons/crucifix.png',
       alt: 'Crucifix Icon'
+    },
+    {
+      src: '/ramsis-iconography/uploads/icons/severusdioskoros.png',
+      alt: 'Severus Dioskoros Icon',
+      isLandscape: true
     }
   ];
 
@@ -150,11 +155,11 @@ const IconSlideshow = () => {
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {extendedIcons.map((icon, index) => (
-            <div key={index} className="slide">
+            <div key={index} className={`slide ${icon.isLandscape ? 'landscape-slide' : ''}`}>
               <img
                 src={icon.src}
                 alt={icon.alt}
-                className="slide-image"
+                className={`slide-image ${icon.isLandscape ? 'landscape-image' : ''}`}
               />
             </div>
           ))}

@@ -34,6 +34,14 @@
   object-position: center 15%;
 }
 
+/* Landscape image styles */
+.landscape-slide .slide-image,
+.landscape-image {
+  object-fit: contain;
+  object-position: center;
+  background: rgba(0, 0, 0, 0.1);
+}
+
 /* Navigation arrows */
 .nav-arrow {
   position: absolute;

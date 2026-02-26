@@ -136,6 +136,19 @@ const Gallery = () => {
                 <p>Sacred crucifix icon depicting Christ's sacrifice, created with traditional iconographic techniques.</p>
               </div>
             </div>
+            <div className="featured-item landscape-item">
+              <img
+                src="/ramsis-iconography/uploads/icons/severusdioskoros.png"
+                alt="Severus Dioskoros Icon"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  border: '1px solid var(--border-subtle)',
+                  transition: 'all 0.3s ease'
+                }}
+              />
+            </div>
           </div>
         </div>
       </section>
