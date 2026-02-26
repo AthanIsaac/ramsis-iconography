@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ramsis-iconography/static/css/main.5fd61404.css",
+    "main.css": "/ramsis-iconography/static/css/main.223fbd5c.css",
     "main.js": "/ramsis-iconography/static/js/main.af06631c.js",
     "static/js/453.39134082.chunk.js": "/ramsis-iconography/static/js/453.39134082.chunk.js",
     "static/media/history1.png": "/ramsis-iconography/static/media/history1.3a7b029fe249fceed38f.png",
@@ -9,12 +9,12 @@
     "static/media/Christ.jpg": "/ramsis-iconography/static/media/Christ.75d250d9319b121ae55b.jpg",
     "static/media/severus.png": "/ramsis-iconography/static/media/severus.40288bb0dae1f39fdc74.png",
     "index.html": "/ramsis-iconography/index.html",
-    "main.5fd61404.css.map": "/ramsis-iconography/static/css/main.5fd61404.css.map",
+    "main.223fbd5c.css.map": "/ramsis-iconography/static/css/main.223fbd5c.css.map",
     "main.af06631c.js.map": "/ramsis-iconography/static/js/main.af06631c.js.map",
     "453.39134082.chunk.js.map": "/ramsis-iconography/static/js/453.39134082.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5fd61404.css",
+    "static/css/main.223fbd5c.css",
     "static/js/main.af06631c.js"
   ]
 }
