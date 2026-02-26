@@ -16,21 +16,24 @@ const IconSlideshow = () => {
       alt: 'Saint Anthony with Words Icon'
     },
     {
-      src: '/ramsis-iconography/uploads/icons/simon.jpg',
-      alt: 'St Simon Icon'
-    },
-    {
       src: '/ramsis-iconography/uploads/icons/StAnthony.jpg',
       alt: 'Saint Anthony Icon'
     },
     {
-      src: '/ramsis-iconography/uploads/icons/crucifix.png',
-      alt: 'Crucifix Icon'
+      src: '/ramsis-iconography/uploads/icons/severus.png',
+      alt: 'Severus Icon'
     },
     {
-      src: '/ramsis-iconography/uploads/icons/severusdioskoros.png',
-      alt: 'Severus Dioskoros Icon',
-      isLandscape: true
+      src: '/ramsis-iconography/uploads/icons/dioskoros.png',
+      alt: 'Dioskoros Icon'
+    },
+    {
+      src: '/ramsis-iconography/uploads/icons/simon.jpg',
+      alt: 'St Simon Icon'
+    },
+    {
+      src: '/ramsis-iconography/uploads/icons/crucifix.png',
+      alt: 'Crucifix Icon'
     }
   ];
 
