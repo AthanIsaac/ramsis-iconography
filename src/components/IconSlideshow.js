@@ -4,35 +4,35 @@ import './IconSlideshow.css';
 const IconSlideshow = () => {
   const icons = [
     {
-      src: '/ramsis-iconography/uploads/icons/Theotokos.jpg',
+      src: '/uploads/icons/Theotokos.jpg',
       alt: 'Theotokos Icon'
     },
     {
-      src: '/ramsis-iconography/uploads/icons/Christ.jpg',
+      src: '/uploads/icons/Christ.jpg',
       alt: 'Christ Icon'
     },
     {
-      src: '/ramsis-iconography/uploads/icons/StAnthonyWords.jpg',
+      src: '/uploads/icons/StAnthonyWords.jpg',
       alt: 'Saint Anthony with Words Icon'
     },
     {
-      src: '/ramsis-iconography/uploads/icons/StAnthony.jpg',
+      src: '/uploads/icons/StAnthony.jpg',
       alt: 'Saint Anthony Icon'
     },
     {
-      src: '/ramsis-iconography/uploads/icons/severus.png',
+      src: '/uploads/icons/severus.png',
       alt: 'Severus Icon'
     },
     {
-      src: '/ramsis-iconography/uploads/icons/dioskoros.png',
+      src: '/uploads/icons/dioskoros.png',
       alt: 'Dioskoros Icon'
     },
     {
-      src: '/ramsis-iconography/uploads/icons/simon.jpg',
+      src: '/uploads/icons/simon.jpg',
       alt: 'St Simon Icon'
     },
     {
-      src: '/ramsis-iconography/uploads/icons/crucifix.png',
+      src: '/uploads/icons/crucifix.png',
       alt: 'Crucifix Icon'
     }
   ];

@@ -36,7 +36,7 @@ const Gallery = () => {
           <div className="featured-grid">
             <div className="featured-item">
               <img
-                src="/ramsis-iconography/uploads/icons/Christ.jpg"
+                src="/uploads/icons/Christ.jpg"
                 alt="Christ Pantocrator Icon"
                 style={{
                   width: '100%',
@@ -53,7 +53,7 @@ const Gallery = () => {
             </div>
             <div className="featured-item">
               <img
-                src="/ramsis-iconography/uploads/icons/Theotokos.jpg"
+                src="/uploads/icons/Theotokos.jpg"
                 alt="Theotokos and Child Icon"
                 style={{
                   width: '100%',
@@ -70,7 +70,7 @@ const Gallery = () => {
             </div>
             <div className="featured-item">
               <img
-                src="/ramsis-iconography/uploads/icons/StAnthony.jpg"
+                src="/uploads/icons/StAnthony.jpg"
                 alt="Saint Anthony Icon"
                 style={{
                   width: '100%',
@@ -87,7 +87,7 @@ const Gallery = () => {
             </div>
             <div className="featured-item">
               <img
-                src="/ramsis-iconography/uploads/icons/StAnthonyWords.jpg"
+                src="/uploads/icons/StAnthonyWords.jpg"
                 alt="Saint Anthony with Words Icon"
                 style={{
                   width: '100%',
@@ -104,7 +104,7 @@ const Gallery = () => {
             </div>
             <div className="featured-item">
               <img
-                src="/ramsis-iconography/uploads/icons/simon.jpg"
+                src="/uploads/icons/simon.jpg"
                 alt="Saint Simon Icon"
                 style={{
                   width: '100%',
@@ -121,7 +121,7 @@ const Gallery = () => {
             </div>
             <div className="featured-item">
               <img
-                src="/ramsis-iconography/uploads/icons/crucifix.png"
+                src="/uploads/icons/crucifix.png"
                 alt="Crucifix Icon"
                 style={{
                   width: '100%',
@@ -138,7 +138,7 @@ const Gallery = () => {
             </div>
             <div className="featured-item landscape-item">
               <img
-                src="/ramsis-iconography/uploads/icons/severusdioskoros.png"
+                src="/uploads/icons/severusdioskoros.png"
                 alt="Severus Dioskoros Icon"
                 style={{
                   width: '100%',

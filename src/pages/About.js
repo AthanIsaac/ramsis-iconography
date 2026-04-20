@@ -179,7 +179,7 @@ const About = () => {
           </div>
           <div className="biography-image">
             <img
-              src="/ramsis-iconography/uploads/icons/iconographer.jpg"
+              src="/uploads/icons/iconographer.jpg"
               alt="George Ramsis in his studio"
               style={{
                 width: '100%',
@@ -259,7 +259,7 @@ const About = () => {
                   {getCurrentPageImages(projectKey).map((image, index) => (
                     <img
                       key={index}
-                      src={`/ramsis-iconography/uploads/projects/${projectKey}/${image}`}
+                      src={`/uploads/projects/${projectKey}/${image}`}
                       alt={`${projectsData[projectKey].name} - ${index + 1}`}
                     />
                   ))}

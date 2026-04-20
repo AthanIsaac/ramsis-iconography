@@ -42,7 +42,7 @@ const Home = () => {
           </div>
           <div className="about-image">
             <img
-              src="/ramsis-iconography/uploads/icons/iconographer.jpg"
+              src="/uploads/icons/iconographer.jpg"
               alt="George Ramsis - Iconographer"
               style={{
                 width: '100%',
