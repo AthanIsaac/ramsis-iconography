@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/ramsis-iconography/static/css/main.223fbd5c.css",
-    "main.js": "/ramsis-iconography/static/js/main.af06631c.js",
-    "static/js/453.39134082.chunk.js": "/ramsis-iconography/static/js/453.39134082.chunk.js",
-    "static/media/history1.png": "/ramsis-iconography/static/media/history1.3a7b029fe249fceed38f.png",
-    "static/media/Theotokos.jpg": "/ramsis-iconography/static/media/Theotokos.a65bf46f842c4d240821.jpg",
-    "static/media/StAnthonyWords.jpg": "/ramsis-iconography/static/media/StAnthonyWords.708a40e35ad41d489184.jpg",
-    "static/media/Christ.jpg": "/ramsis-iconography/static/media/Christ.75d250d9319b121ae55b.jpg",
-    "static/media/severus.png": "/ramsis-iconography/static/media/severus.40288bb0dae1f39fdc74.png",
-    "index.html": "/ramsis-iconography/index.html",
-    "main.223fbd5c.css.map": "/ramsis-iconography/static/css/main.223fbd5c.css.map",
-    "main.af06631c.js.map": "/ramsis-iconography/static/js/main.af06631c.js.map",
-    "453.39134082.chunk.js.map": "/ramsis-iconography/static/js/453.39134082.chunk.js.map"
+    "main.css": "./static/css/main.3d997908.css",
+    "main.js": "./static/js/main.2834b63c.js",
+    "static/js/453.39134082.chunk.js": "./static/js/453.39134082.chunk.js",
+    "static/media/history1.png": "./static/media/history1.3a7b029fe249fceed38f.png",
+    "static/media/Theotokos.jpg": "./static/media/Theotokos.a65bf46f842c4d240821.jpg",
+    "static/media/StAnthonyWords.jpg": "./static/media/StAnthonyWords.708a40e35ad41d489184.jpg",
+    "static/media/Christ.jpg": "./static/media/Christ.75d250d9319b121ae55b.jpg",
+    "static/media/severus.png": "./static/media/severus.40288bb0dae1f39fdc74.png",
+    "index.html": "./index.html",
+    "main.3d997908.css.map": "./static/css/main.3d997908.css.map",
+    "main.2834b63c.js.map": "./static/js/main.2834b63c.js.map",
+    "453.39134082.chunk.js.map": "./static/js/453.39134082.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.223fbd5c.css",
-    "static/js/main.af06631c.js"
+    "static/css/main.3d997908.css",
+    "static/js/main.2834b63c.js"
   ]
 }
