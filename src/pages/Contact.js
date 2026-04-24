@@ -235,7 +235,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section className="contact-form-section">
+      <section className="page-section">
         <div className="contact-form-content">
           <div className="form-intro">
             <h2>Start Your Commission</h2>
@@ -381,10 +381,10 @@ const Contact = () => {
       </section>
 
       {/* Contact Information Section */}
-      <section className="contact-info-section">
-        <div className="contact-info-content">
+      <section className="page-section">
+        <div className="section-content">
           <div className="contact-info-grid">
-            <div className="contact-info-item">
+            <div className="glass-card contact-info-item">
               <h3>Contact Details</h3>
               <p>
                 Email: ramsis.icons@gmail.com<br />
@@ -393,7 +393,7 @@ const Contact = () => {
               </p>
             </div>
             
-            <div className="contact-info-item">
+            <div className="glass-card contact-info-item">
               <h3>Commission Timeline</h3>
               <p>
                 Personal Icons: 4-8 weeks<br />
@@ -402,7 +402,7 @@ const Contact = () => {
               </p>
             </div>
 
-            <div className="contact-info-item">
+            <div className="glass-card contact-info-item">
               <h3>Follow Us</h3>
             <div className="social-links">
               <a href="https://instagram.com/ramsis_iconography" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -427,34 +427,34 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="faq-section">
-        <div className="faq-content">
-          <div className="faq-header">
+      <section className="page-section">
+        <div className="section-content">
+          <div className="section-header">
             <h2>Frequently Asked Questions</h2>
           </div>
-          
+
           <div className="faq-grid">
-            <div className="faq-item">
+            <div className="glass-card faq-item">
               <h3>What makes an icon authentic?</h3>
               <p>Authentic icons follow canonical guidelines, use traditional materials and techniques, and are created with proper spiritual preparation including prayer and fasting.</p>
             </div>
-            
-            <div className="faq-item">
+
+            <div className="glass-card faq-item">
               <h3>How long does a commission take?</h3>
               <p>Personal icons typically take 4-8 weeks, while larger church projects can take 3-12 months depending on complexity and size.</p>
             </div>
-            
-            <div className="faq-item">
+
+            <div className="glass-card faq-item">
               <h3>Can I request specific saints or subjects?</h3>
               <p>Absolutely. I can create icons of any canonically recognized saint or traditional iconographic subject following proper theological guidelines.</p>
             </div>
-            
-            <div className="faq-item">
+
+            <div className="glass-card faq-item">
               <h3>Do you offer payment plans?</h3>
               <p>Yes, I offer flexible payment plans for larger commissions. Typically 50% deposit to begin, with the remainder due upon completion.</p>
             </div>
-            
-            <div className="faq-item">
+
+            <div className="glass-card faq-item">
               <h3>What materials do you use?</h3>
               <p>I use traditional materials including natural pigments, egg tempera, gold leaf, and properly prepared wood panels following ancient techniques.</p>
             </div>

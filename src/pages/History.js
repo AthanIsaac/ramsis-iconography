@@ -8,53 +8,40 @@ const History = () => {
   const timelineRef = useRef(null);
   const progressRef = useRef(null);
 
-  // Parallax scroll effect
   useScrollEffect(() => {
     const scrolled = window.pageYOffset;
     const rate = scrolled * -0.1;
     document.documentElement.style.setProperty('--scroll-offset', `${rate}px`);
   });
 
-  // Timeline progress effect
   useScrollEffect(() => {
     if (timelineRef.current && progressRef.current) {
       const timelineRect = timelineRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       const timelineHeight = timelineRef.current.offsetHeight;
-      
+
       let progress = 0;
       if (timelineRect.top < windowHeight && timelineRect.bottom > 0) {
         const visibleTop = Math.max(0, windowHeight - timelineRect.top);
         const visibleHeight = Math.min(timelineHeight, visibleTop);
         progress = Math.min(100, (visibleHeight / timelineHeight) * 100);
       }
-      
+
       progressRef.current.style.height = `${progress}%`;
     }
   });
 
   useEffect(() => {
-    // Intersection Observer for timeline items
-    const observerOptions = {
-      threshold: 0.3,
-      rootMargin: '-50px 0px'
-    };
+    const observerOptions = { threshold: 0.3, rootMargin: '-50px 0px' };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('timeline-item-visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('timeline-item-visible');
       });
     }, observerOptions);
 
-    // Observe timeline items
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    timelineItems.forEach((item) => observer.observe(item));
-
-    return () => {
-      observer.disconnect();
-    };
+    document.querySelectorAll('.timeline-item').forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -68,7 +55,7 @@ const History = () => {
       </section>
 
       {/* Introduction Section */}
-      <section className="introduction-section">
+      <section className="page-section">
         <div className="introduction-content">
           <div className="introduction-text">
             <h2>Ancient Roots of Sacred Art</h2>
@@ -95,12 +82,12 @@ const History = () => {
       </section>
 
       {/* Timeline Section */}
-      <section className="timeline-section">
+      <section className="page-section">
         <div className="timeline-content">
           <h2>Historical Timeline</h2>
           <div className="timeline" ref={timelineRef}>
             <div className="timeline-progress" ref={progressRef}></div>
-            
+
             <div className="timeline-item">
               <div className="timeline-marker"></div>
               <div className="timeline-card">
@@ -150,7 +137,7 @@ const History = () => {
       </section>
 
       {/* Characteristics Section */}
-      <section className="characteristics-section">
+      <section className="page-section">
         <div className="characteristics-content">
           <div className="characteristics-image">
             <LazyImage
@@ -184,26 +171,26 @@ const History = () => {
       </section>
 
       {/* Techniques Section */}
-      <section className="techniques-section">
-        <div className="techniques-content">
-          <div className="techniques-header">
+      <section className="page-section">
+        <div className="section-content">
+          <div className="section-header">
             <h2>Traditional Techniques</h2>
             <p>Methods passed down through generations of Coptic iconographers</p>
           </div>
           <div className="techniques-grid">
-            <div className="technique-item">
+            <div className="glass-card">
               <h3>Egg Tempera</h3>
               <p>Traditional medium using egg yolk mixed with natural pigments, creating luminous and durable colors that have survived centuries.</p>
             </div>
-            <div className="technique-item">
+            <div className="glass-card">
               <h3>Natural Pigments</h3>
               <p>Colors derived from minerals, plants, and earth found along the Nile, including lapis lazuli, ochre, and malachite.</p>
             </div>
-            <div className="technique-item">
+            <div className="glass-card">
               <h3>Gold Leaf Application</h3>
               <p>Sacred use of gold to represent divine light and glory, applied with traditional techniques to create heavenly radiance.</p>
             </div>
-            <div className="technique-item">
+            <div className="glass-card">
               <h3>Wooden Panels</h3>
               <p>Icons painted on specially prepared wooden panels, often using sycamore wood native to Egypt.</p>
             </div>
@@ -212,7 +199,7 @@ const History = () => {
       </section>
 
       {/* Legacy Section */}
-      <section className="legacy-section">
+      <section className="page-section">
         <div className="legacy-content">
           <h2>Living Tradition</h2>
           <div className="legacy-text">
@@ -235,9 +222,9 @@ const History = () => {
         </div>
       </section>
 
-      {/* Contact CTA Section */}
-      <section className="contact-cta-section">
-        <div className="contact-cta-content">
+      {/* CTA Section */}
+      <section className="cta-section">
+        <div className="cta-section-content">
           <h2>Experience This Sacred Tradition</h2>
           <p>Discover how George Ramsis continues the ancient art of Coptic iconography in his contemporary work.</p>
           <div className="cta-buttons">

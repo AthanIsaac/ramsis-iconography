@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <div className="home">
       {/* Hero Section - Icon Slideshow */}
-      <section className="hero">
+      <section className="home-hero">
         <IconSlideshow />
       </section>
 
@@ -42,7 +42,7 @@ const Home = () => {
           </div>
           <div className="about-image">
             <img
-              src="/uploads/icons/iconographer.jpg"
+              src="/uploads/icons/george.jpg"
               alt="George Ramsis - Iconographer"
               style={{
                 width: '100%',

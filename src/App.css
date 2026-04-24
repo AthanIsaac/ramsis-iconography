@@ -223,11 +223,6 @@ a:hover {
   overflow: hidden;
 }
 
-.image-placeholder:hover {
-  border-color: var(--accent-maroon);
-  background: var(--tertiary-light);
-}
-
 .image-placeholder::after {
   content: '';
   position: absolute;
@@ -238,10 +233,6 @@ a:hover {
   background: var(--hover-overlay);
   opacity: 0;
   transition: opacity 0.3s ease;
-}
-
-.image-placeholder:hover::after {
-  opacity: 1;
 }
 
 /* Form Styles - Modern Minimalist */
@@ -290,11 +281,6 @@ a:hover {
   padding: 2rem;
   transition: all 0.3s ease;
   position: relative;
-}
-
-.card:hover {
-  border-color: var(--accent-maroon);
-  background: var(--tertiary-light);
 }
 
 /* Section Divider */
@@ -393,7 +379,254 @@ select:focus {
   outline-offset: 2px;
 }
 
-/* Print Styles */
+/* ═══════════════════════════════════════════
+   SHARED PAGE COMPONENTS
+   ═══════════════════════════════════════════ */
+
+/* Hero — used by all pages */
+.hero {
+  min-height: 80vh;
+  background: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(248, 249, 250, 0.8) 50%,
+    rgba(248, 249, 250, 0.9) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 0 2rem;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: clamp(60px, 10vw, 200px);
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 40%,
+    rgba(255, 255, 255, 1) 100%);
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 800px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.95);
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.hero .lead {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Glass Card — used for grid item cards on every page */
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border-subtle);
+  padding: clamp(1.5rem, 3vw, 3rem) clamp(1.25rem, 2.5vw, 2rem);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.glass-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.glass-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Section Header Box — centered title/subtitle inside a glass box */
+.section-header {
+  text-align: center;
+  margin-bottom: clamp(2rem, 5vw, 6rem);
+  background: rgba(255, 255, 255, 0.95);
+  padding: clamp(1.5rem, 3vw, 3rem);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+}
+
+.section-header p {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Page Section — content sections with proportional padding and fades */
+.page-section {
+  padding: clamp(3rem, 8vw, 8rem) 0;
+  background: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(248, 249, 250, 0.8) 50%,
+    rgba(255, 255, 255, 0.9) 100%);
+  position: relative;
+}
+
+.page-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: clamp(50px, 8vw, 150px);
+  background: linear-gradient(to bottom,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    transparent 100%);
+  pointer-events: none;
+}
+
+.page-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: clamp(50px, 8vw, 150px);
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 1) 100%);
+  pointer-events: none;
+}
+
+/* Section content containers */
+.section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* CTA Section — last section on each page */
+.cta-section {
+  padding: clamp(3rem, 8vw, 8rem) 0;
+  background: var(--gradient-light);
+  position: relative;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: clamp(50px, 8vw, 150px);
+  background: linear-gradient(to bottom,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    transparent 100%);
+  pointer-events: none;
+}
+
+.cta-section-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.cta-section-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.cta-section-content p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Pagination — used by Projects page */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 0.5rem;
+}
+
+.pagination-btn {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border-subtle);
+  padding: 0.65rem 1.25rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  backdrop-filter: blur(10px);
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: var(--accent-maroon);
+  color: white;
+  border-color: var(--accent-maroon);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(139, 21, 56, 0.3);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.pagination-info {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
+}
+
+/* ─── Print Styles ─── */
 @media print {
   .header,
   .footer,
