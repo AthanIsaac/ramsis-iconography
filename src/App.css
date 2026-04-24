@@ -439,6 +439,13 @@ select:focus {
   margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+  .hero {
+    min-height: 50vh;
+    padding: 3rem 1.5rem;
+  }
+}
+
 /* Glass Card — used for grid item cards on every page */
 .glass-card {
   background: rgba(255, 255, 255, 0.95);

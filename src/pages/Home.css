@@ -338,6 +338,11 @@
     height: calc(100vh - 70px);
   }
 
+  .about-section,
+  .services-section {
+    padding: 5rem 0;
+  }
+
   .about-content {
     grid-template-columns: 1fr;
     gap: 4rem;
