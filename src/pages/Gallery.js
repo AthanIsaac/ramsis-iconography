@@ -12,7 +12,12 @@ const galleryImages = [
   { src: '/uploads/icons/christ1.jpg', alt: 'Christ Icon' },
   { src: '/uploads/icons/crucifix.png', alt: 'Crucifix Icon' },
   { src: '/uploads/icons/simon.jpg', alt: 'Saint Simon Icon' },
-  
+];
+
+const process = [
+  { num: '01', title: 'Prayer & Preparation', desc: 'Every icon begins with prayer, fasting, and spiritual preparation to create a sacred space for the work.' },
+  { num: '02', title: 'Traditional Materials', desc: 'Using natural pigments, egg tempera, and gold leaf following centuries-old recipes and techniques.' },
+  { num: '03', title: 'Canonical Guidelines', desc: 'Strict adherence to theological and artistic traditions ensures spiritual authenticity in every piece.' },
 ];
 
 const Gallery = () => {
@@ -25,6 +30,15 @@ const Gallery = () => {
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -53,7 +67,6 @@ const Gallery = () => {
 
   return (
     <div className="gallery">
-      {/* Lightbox */}
       {lightbox && (
         <div className="lightbox-overlay" onClick={() => setLightbox(null)}>
           <button className="lightbox-close" onClick={() => setLightbox(null)} aria-label="Close">✕</button>
@@ -66,7 +79,6 @@ const Gallery = () => {
         </div>
       )}
 
-      {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
           <h1>Sacred Art Gallery</h1>
@@ -74,16 +86,16 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Featured Works Section */}
+      {/* Featured Works */}
       <section className="page-section">
         <div className="section-content">
-          <div className="section-header">
+          <div className="section-header animate-in">
+            <span className="section-label">Portfolio</span>
             <h2>Featured Works</h2>
-            <p>Recent commissions and personal devotional pieces</p>
           </div>
           <div className="featured-grid">
             {galleryImages.map((img, i) => (
-              <div key={i} className={`featured-item${img.landscape ? ' landscape-item' : ''}`}>
+              <div key={i} className={`featured-item animate-in${img.landscape ? ' landscape-item' : ''}`} style={{ transitionDelay: `${(i % 2) * 0.1}s` }}>
                 <div
                   className="gallery-img-wrap"
                   onClick={() => setLightbox({ index: i })}
@@ -97,7 +109,7 @@ const Gallery = () => {
                     alt={img.alt}
                     loading="lazy"
                     decoding="async"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', border: '1px solid var(--border-subtle)' }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                   <div className="gallery-img-overlay">
                     <span className="gallery-img-expand">
@@ -116,47 +128,42 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Process */}
       <section className="page-section">
         <div className="section-content">
-          <div className="section-header">
+          <div className="section-header animate-in">
+            <span className="section-label">Behind the Work</span>
             <h2>The Sacred Process</h2>
-            <p>Each icon follows ancient traditions and spiritual practices</p>
           </div>
           <div className="process-grid">
-            <div className="glass-card">
-              <h3>Prayer & Preparation</h3>
-              <p>Every icon begins with prayer, fasting, and spiritual preparation to create a sacred space for the work.</p>
-            </div>
-            <div className="glass-card">
-              <h3>Traditional Materials</h3>
-              <p>Using natural pigments, egg tempera, and gold leaf following centuries-old recipes and techniques.</p>
-            </div>
-            <div className="glass-card">
-              <h3>Canonical Guidelines</h3>
-              <p>Strict adherence to theological and artistic traditions ensures spiritual authenticity in every piece.</p>
-            </div>
+            {process.map((item, i) => (
+              <div key={i} className="numbered-card animate-in" style={{ transitionDelay: `${i * 0.1}s` }}>
+                <span className="card-number">{item.num}</span>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonials */}
       <section className="page-section">
         <div className="section-content">
-          <div className="section-header">
+          <div className="section-header animate-in">
+            <span className="section-label">From Clients</span>
             <h2>Testimonials</h2>
-            <p>Words from those who have commissioned sacred art</p>
           </div>
           <div className="testimonials-grid">
-            <div className="glass-card testimonial-item">
+            <div className="testimonial-item animate-in">
               <p>"I am a big fan of George's work! In the last few years his icons have become among some of the best in the world! He is creative and flexible and work with you to get the icon that you want that is both theologically sound and spiritually inspired."</p>
               <div className="testimonial-author"><strong>— Archdeacon Mark Solomon</strong></div>
             </div>
-            <div className="glass-card testimonial-item">
+            <div className="testimonial-item animate-in" style={{ transitionDelay: '0.1s' }}>
               <p>"The icon was beautiful, and the process was seamless. George was professional, responsive, and thorough in explaining the iconography, with regular check-ins and timely delivery. I look forward to future commissions. God bless his work!"</p>
               <div className="testimonial-author"><strong>— Steven Loza, Washington</strong></div>
             </div>
-            <div className="glass-card testimonial-item">
+            <div className="testimonial-item animate-in" style={{ transitionDelay: '0.15s' }}>
               <p>"I've had the pleasure of working with George as colleagues for some years. We've painted various murals together all over the world. During this time I've had the honour of witnessing his incredible artistic and personal development that most artists can only dream of. Serving God in any manner is such a great privilege, and painting icons with George is one of life's quiet privileges that I cherish each time we do it. His work and its beautiful quality speaks for itself. Add this to his wonderful humility for this vocation and you've got a beautiful synergy of joy."</p>
               <div className="testimonial-author"><strong>— Fadi Mikhail | Master Iconographer | UK</strong></div>
             </div>
@@ -164,7 +171,6 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Commission CTA Section */}
       <section className="cta-section">
         <div className="cta-section-content">
           <h2>Commission Your Sacred Icon</h2>

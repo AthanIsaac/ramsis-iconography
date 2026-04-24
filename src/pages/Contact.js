@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import './Contact.css';
 
+const faqs = [
+  { num: '01', title: 'What makes an icon authentic?', desc: 'Authentic icons follow canonical guidelines, use traditional materials and techniques, and are created with proper spiritual preparation including prayer and fasting.' },
+  { num: '02', title: 'How long does a commission take?', desc: 'Personal icons typically take 4–8 weeks, while larger church projects can take 3–12 months depending on complexity and size.' },
+  { num: '03', title: 'Can I request specific saints or subjects?', desc: 'Absolutely. I can create icons of any canonically recognized saint or traditional iconographic subject following proper theological guidelines.' },
+  { num: '04', title: 'Do you offer payment plans?', desc: 'Yes, I offer flexible payment plans for larger commissions. Typically 50% deposit to begin, with the remainder due upon completion.' },
+  { num: '05', title: 'What materials do you use?', desc: 'I use traditional materials including natural pigments, egg tempera, gold leaf, and properly prepared wood panels following ancient techniques.' },
+];
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -30,15 +38,20 @@ const Contact = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrolled = window.pageYOffset;
-      const rate = scrolled * -0.1;
-      
-      // Update CSS custom property for the background position
+      const rate = window.pageYOffset * -0.1;
       document.documentElement.style.setProperty('--scroll-offset', `${rate}px`);
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   // Helper function to get estimated price
@@ -237,7 +250,8 @@ const Contact = () => {
       {/* Contact Form Section */}
       <section className="page-section">
         <div className="contact-form-content">
-          <div className="form-intro">
+          <div className="form-intro animate-in">
+            <span className="section-label">Commission</span>
             <h2>Start Your Commission</h2>
             <p>
               Every icon begins with a conversation. Share your vision, spiritual needs,
@@ -383,8 +397,12 @@ const Contact = () => {
       {/* Contact Information Section */}
       <section className="page-section">
         <div className="section-content">
+          <div className="section-header animate-in">
+            <span className="section-label">Reach Out</span>
+            <h2>Contact Information</h2>
+          </div>
           <div className="contact-info-grid">
-            <div className="glass-card contact-info-item">
+            <div className="glass-card contact-info-item animate-in">
               <h3>Contact Details</h3>
               <p>
                 Email: ramsis.icons@gmail.com<br />
@@ -392,8 +410,8 @@ const Contact = () => {
                 Available: By Appointment
               </p>
             </div>
-            
-            <div className="glass-card contact-info-item">
+
+            <div className="glass-card contact-info-item animate-in" style={{ transitionDelay: '0.08s' }}>
               <h3>Commission Timeline</h3>
               <p>
                 Personal Icons: 4-8 weeks<br />
@@ -402,7 +420,7 @@ const Contact = () => {
               </p>
             </div>
 
-            <div className="glass-card contact-info-item">
+            <div className="glass-card contact-info-item animate-in" style={{ transitionDelay: '0.16s' }}>
               <h3>Follow Us</h3>
             <div className="social-links">
               <a href="https://instagram.com/ramsis_iconography" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -429,35 +447,19 @@ const Contact = () => {
       {/* FAQ Section */}
       <section className="page-section">
         <div className="section-content">
-          <div className="section-header">
+          <div className="section-header animate-in">
+            <span className="section-label">Questions</span>
             <h2>Frequently Asked Questions</h2>
           </div>
 
           <div className="faq-grid">
-            <div className="glass-card faq-item">
-              <h3>What makes an icon authentic?</h3>
-              <p>Authentic icons follow canonical guidelines, use traditional materials and techniques, and are created with proper spiritual preparation including prayer and fasting.</p>
-            </div>
-
-            <div className="glass-card faq-item">
-              <h3>How long does a commission take?</h3>
-              <p>Personal icons typically take 4-8 weeks, while larger church projects can take 3-12 months depending on complexity and size.</p>
-            </div>
-
-            <div className="glass-card faq-item">
-              <h3>Can I request specific saints or subjects?</h3>
-              <p>Absolutely. I can create icons of any canonically recognized saint or traditional iconographic subject following proper theological guidelines.</p>
-            </div>
-
-            <div className="glass-card faq-item">
-              <h3>Do you offer payment plans?</h3>
-              <p>Yes, I offer flexible payment plans for larger commissions. Typically 50% deposit to begin, with the remainder due upon completion.</p>
-            </div>
-
-            <div className="glass-card faq-item">
-              <h3>What materials do you use?</h3>
-              <p>I use traditional materials including natural pigments, egg tempera, gold leaf, and properly prepared wood panels following ancient techniques.</p>
-            </div>
+            {faqs.map((item, i) => (
+              <div key={i} className="numbered-card animate-in" style={{ transitionDelay: `${i * 0.07}s` }}>
+                <span className="card-number">{item.num}</span>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

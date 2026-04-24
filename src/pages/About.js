@@ -2,21 +2,40 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './About.css';
 
+const training = [
+  { num: '01', title: 'Traditional Techniques', desc: 'Studied under master iconographers in Egypt and London, learning ancient egg tempera methods and gold leaf application techniques.' },
+  { num: '02', title: 'Theological Studies', desc: 'Completed extensive theological education to understand the spiritual and canonical requirements of sacred iconography.' },
+  { num: '03', title: 'Natural Pigments', desc: 'Expert in creating and using traditional natural pigments, ensuring authenticity and longevity in every piece.' },
+  { num: '04', title: 'Gold Leaf Application', desc: 'Traditional gold leaf techniques, creating luminous halos and sacred details that reflect divine light.' },
+];
+
+const recognition = [
+  { num: '01', title: 'Church Commissions', desc: 'George has contributed to many churches across North America, working on iconostasis and sanctuary decorations.' },
+  { num: '02', title: 'Icon Portfolio', desc: 'Dozens of individual icons have been created for private collections, churches, and prayer spaces.' },
+  { num: '03', title: 'Teaching & Workshops', desc: 'Regular workshops and classes help preserve traditional iconographic techniques for future generations.' },
+];
+
 const About = () => {
   useEffect(() => {
     const handleScroll = () => {
-      const scrolled = window.pageYOffset;
-      const rate = scrolled * -0.1;
+      const rate = window.pageYOffset * -0.1;
       document.documentElement.style.setProperty('--scroll-offset', `${rate}px`);
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="about">
-      {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
           <h1>About George Ramsis</h1>
@@ -24,10 +43,11 @@ const About = () => {
         </div>
       </section>
 
-      {/* Biography Section */}
+      {/* Biography */}
       <section className="page-section">
         <div className="biography-content">
-          <div className="biography-text">
+          <div className="biography-text animate-in">
+            <span className="section-label">Iconographer</span>
             <h2>A Life Devoted to Sacred Art</h2>
             <p>
               George Ramsis has dedicated years to the ancient and sacred art of iconography.
@@ -46,74 +66,54 @@ const About = () => {
               authenticity and artistic excellence.
             </p>
           </div>
-          <div className="biography-image">
+          <div className="biography-image animate-in">
             <img
               src="/uploads/icons/george.jpg"
               alt="George Ramsis in his studio"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                aspectRatio: '4/5',
-                border: '1px solid var(--border-subtle)'
-              }}
+              decoding="async"
             />
           </div>
         </div>
       </section>
 
-      {/* Training Section */}
+      {/* Training */}
       <section className="page-section">
         <div className="section-content">
-          <div className="section-header">
+          <div className="section-header animate-in">
+            <span className="section-label">Expertise</span>
             <h2>Training & Expertise</h2>
-            <p>A foundation built on traditional methods and spiritual understanding</p>
           </div>
           <div className="training-grid">
-            <div className="glass-card">
-              <h3>Traditional Techniques</h3>
-              <p>Studied under master iconographers in Egypt, London, learning ancient egg tempera methods and gold leaf application techniques.</p>
-            </div>
-            <div className="glass-card">
-              <h3>Theological Studies</h3>
-              <p>Completed extensive theological education to understand the spiritual and canonical requirements of sacred iconography.</p>
-            </div>
-            <div className="glass-card">
-              <h3>Natural Pigments</h3>
-              <p>Expert in creating and using traditional natural pigments, ensuring authenticity and longevity in every piece.</p>
-            </div>
-            <div className="glass-card">
-              <h3>Gold Leaf Application</h3>
-              <p>Traditional gold leaf techniques, creating luminous halos and sacred details that reflect divine light.</p>
-            </div>
+            {training.map((item, i) => (
+              <div key={i} className="numbered-card animate-in" style={{ transitionDelay: `${i * 0.08}s` }}>
+                <span className="card-number">{item.num}</span>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Recognition Section */}
+      {/* Recognition */}
       <section className="page-section">
         <div className="section-content">
-          <div className="section-header">
+          <div className="section-header animate-in">
+            <span className="section-label">Work</span>
             <h2>Recognition & Commissions</h2>
           </div>
           <div className="recognition-grid">
-            <div className="glass-card">
-              <h3>Church Commissions</h3>
-              <p>George has contributed to many churches across North America, working on iconostasis and sanctuary decorations.</p>
-            </div>
-            <div className="glass-card">
-              <h3>Icon Portfolio</h3>
-              <p>Dozens of individual icons have been created for private collections, churches, and prayer spaces.</p>
-            </div>
-            <div className="glass-card">
-              <h3>Teaching & Workshops</h3>
-              <p>Regular workshops and classes help preserve traditional iconographic techniques for future generations.</p>
-            </div>
+            {recognition.map((item, i) => (
+              <div key={i} className="numbered-card animate-in" style={{ transitionDelay: `${i * 0.08}s` }}>
+                <span className="card-number">{item.num}</span>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Contact CTA Section */}
       <section className="cta-section">
         <div className="cta-section-content">
           <h2>Commission Your Sacred Art</h2>

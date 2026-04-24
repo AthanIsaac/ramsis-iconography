@@ -92,6 +92,15 @@ const Projects = () => {
   }, []);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     const handleKeyDown = (e) => {
       if (!lightbox) return;
       if (e.key === 'Escape') setLightbox(null);
@@ -220,7 +229,8 @@ const Projects = () => {
       {/* Intro Section */}
       <section className="page-section">
         <div className="proj-intro-content">
-          <div className="proj-intro-text">
+          <div className="proj-intro-text animate-in">
+            <span className="section-label">Collaboration</span>
             <h2>In Collaboration with Fadi Mikhail</h2>
             <p>
               George Ramsis had the privilege of working in collaboration with the renowned iconographer Fadi Mikhail,
@@ -250,9 +260,9 @@ const Projects = () => {
         return (
           <section key={projectKey} className="page-section">
             <div className="proj-church-content">
-              <div className="proj-church-header">
+              <div className="proj-church-header animate-in">
+                <span className="section-label">{project.location}</span>
                 <h2>{project.name}</h2>
-                <span className="proj-church-location">{project.location}</span>
               </div>
               <div className="proj-church-grid">
                 {pageImages.map((image, i) => (
