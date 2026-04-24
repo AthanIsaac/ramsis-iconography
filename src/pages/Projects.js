@@ -13,10 +13,10 @@ const projectsData = {
       "IMG_1185.JPG",
       "IMG_1186.JPG",
       "IMG_1187.JPG",
-      "IMG_1188.JPG",
       "IMG_9699.JPG",
-      "IMG_9715.JPG",
       "IMG_9716.JPG",
+      "IMG_1188.JPG",
+      "IMG_9715.JPG",
       "IMG_9776.JPG",
       "IMG_9786.JPG",
       "IMG_9817.JPG"

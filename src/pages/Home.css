@@ -241,6 +241,7 @@
 @media (max-width: 768px) {
   .home { padding-top: 70px; }
   .home-hero { height: calc(100vh - 70px); }
+  .home::before { height: 200vh; }
 
   .about-section,
   .gallery-preview-section,
