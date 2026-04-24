@@ -10,7 +10,7 @@ const About = () => {
       document.documentElement.style.setProperty('--scroll-offset', `${rate}px`);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

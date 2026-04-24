@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Gallery.css';
 
@@ -23,23 +23,22 @@ const Gallery = () => {
       const rate = window.pageYOffset * -0.1;
       document.documentElement.style.setProperty('--scroll-offset', `${rate}px`);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleKeyDown = useCallback((e) => {
-    if (!lightbox) return;
-    if (e.key === 'Escape') setLightbox(null);
-    if (e.key === 'ArrowRight' && lightbox.index < galleryImages.length - 1)
-      setLightbox({ index: lightbox.index + 1 });
-    if (e.key === 'ArrowLeft' && lightbox.index > 0)
-      setLightbox({ index: lightbox.index - 1 });
-  }, [lightbox]);
-
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!lightbox) return;
+      if (e.key === 'Escape') setLightbox(null);
+      if (e.key === 'ArrowRight' && lightbox.index < galleryImages.length - 1)
+        setLightbox({ index: lightbox.index + 1 });
+      if (e.key === 'ArrowLeft' && lightbox.index > 0)
+        setLightbox({ index: lightbox.index - 1 });
+    };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [handleKeyDown]);
+  }, [lightbox]);
 
   useEffect(() => {
     document.body.style.overflow = lightbox ? 'hidden' : '';
@@ -96,7 +95,9 @@ const Gallery = () => {
                   <img
                     src={img.src}
                     alt={img.alt}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', border: '1px solid var(--border-subtle)', transition: 'all 0.3s ease' }}
+                    loading="lazy"
+                    decoding="async"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', border: '1px solid var(--border-subtle)' }}
                   />
                   <div className="gallery-img-overlay">
                     <span className="gallery-img-expand">

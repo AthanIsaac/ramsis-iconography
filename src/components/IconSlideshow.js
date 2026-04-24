@@ -162,6 +162,8 @@ const IconSlideshow = () => {
               <img
                 src={icon.src}
                 alt={icon.alt}
+                loading={index === 0 ? 'eager' : 'lazy'}
+                decoding="async"
                 className={`slide-image ${icon.isLandscape ? 'landscape-image' : ''}`}
               />
             </div>

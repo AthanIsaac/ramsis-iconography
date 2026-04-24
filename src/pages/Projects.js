@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Projects.css';
 
@@ -87,33 +87,32 @@ const Projects = () => {
       const rate = window.pageYOffset * -0.1;
       document.documentElement.style.setProperty('--scroll-offset', `${rate}px`);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleKeyDown = useCallback((e) => {
-    if (!lightbox) return;
-    if (e.key === 'Escape') setLightbox(null);
-    if (e.key === 'ArrowRight') {
-      const { projectKey, index } = lightbox;
-      const images = projectsData[projectKey].images;
-      if (index < images.length - 1) {
-        setLightbox({ projectKey, index: index + 1, src: `/uploads/projects/${projectKey}/${images[index + 1]}` });
-      }
-    }
-    if (e.key === 'ArrowLeft') {
-      const { projectKey, index } = lightbox;
-      const images = projectsData[projectKey].images;
-      if (index > 0) {
-        setLightbox({ projectKey, index: index - 1, src: `/uploads/projects/${projectKey}/${images[index - 1]}` });
-      }
-    }
-  }, [lightbox]);
-
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!lightbox) return;
+      if (e.key === 'Escape') setLightbox(null);
+      if (e.key === 'ArrowRight') {
+        const { projectKey, index } = lightbox;
+        const images = projectsData[projectKey].images;
+        if (index < images.length - 1) {
+          setLightbox({ projectKey, index: index + 1, src: `/uploads/projects/${projectKey}/${images[index + 1]}` });
+        }
+      }
+      if (e.key === 'ArrowLeft') {
+        const { projectKey, index } = lightbox;
+        const images = projectsData[projectKey].images;
+        if (index > 0) {
+          setLightbox({ projectKey, index: index - 1, src: `/uploads/projects/${projectKey}/${images[index - 1]}` });
+        }
+      }
+    };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [handleKeyDown]);
+  }, [lightbox]);
 
   useEffect(() => {
     if (lightbox) {
@@ -269,6 +268,8 @@ const Projects = () => {
                     <img
                       src={`/uploads/projects/${projectKey}/${image}`}
                       alt={`${project.name} - ${pageStart + i + 1}`}
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="proj-img-overlay">
                       <span className="proj-img-expand">
