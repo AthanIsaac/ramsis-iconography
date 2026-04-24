@@ -41,6 +41,7 @@ const About = () => {
           <h1>About George Ramsis</h1>
           <p className="lead">Iconographer dedicated to preserving sacred traditions through contemporary artistry</p>
         </div>
+        <div className="hero-scroll-indicator"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
       </section>
 
       {/* Biography */}
@@ -66,7 +67,7 @@ const About = () => {
               authenticity and artistic excellence.
             </p>
           </div>
-          <div className="biography-image animate-in">
+          <div className="biography-image">
             <img
               src="/uploads/icons/george.jpg"
               alt="George Ramsis in his studio"

@@ -52,7 +52,7 @@ const Home = () => {
             </p>
             <Link to="/about" className="btn btn-ghost">Learn More →</Link>
           </div>
-          <div className="about-image animate-in">
+          <div className="about-image">
             <img
               src="/uploads/icons/george.jpg"
               alt="George Ramsis - Iconographer"

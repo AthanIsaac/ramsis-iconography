@@ -119,34 +119,27 @@
   .footer {
     padding: 2.5rem 0 1.5rem;
   }
-  
+
   .footer .container {
     padding: 0 1rem;
   }
-  
+
   .footer-content {
     flex-direction: column;
     text-align: center;
     gap: 2rem;
   }
-  
-  /* Hide navigation links on mobile */
+
   .footer-links {
     display: none;
   }
-  
-  /* Follow us section first */
+
   .footer-social {
     order: 1;
   }
-  
-  /* Hide main section (title and description) on mobile */
+
   .footer-main {
     display: none;
-  }
-  
-  .footer-main h3 {
-    font-size: 1.2rem;
   }
 }
 
@@ -154,11 +147,11 @@
   .footer-links {
     display: none;
   }
-  
+
   .footer-social {
     order: 1;
   }
-  
+
   .footer-main {
     display: none;
   }

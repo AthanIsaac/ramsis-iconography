@@ -30,15 +30,6 @@
   position: relative;
 }
 
-.about-section::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 60px;
-  background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.97) 100%);
-  pointer-events: none;
-}
-
 .about-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -85,7 +76,7 @@
 /* ─── Gallery Preview Section ─── */
 .gallery-preview-section {
   padding: 8rem 0;
-  background: rgba(250, 248, 245, 0.97);
+  background: rgba(250, 248, 245, 0.88);
   position: relative;
 }
 

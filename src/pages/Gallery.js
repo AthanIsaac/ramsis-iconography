@@ -84,6 +84,7 @@ const Gallery = () => {
           <h1>Sacred Art Gallery</h1>
           <p className="lead">A collection of icons created with devotion, tradition, and spiritual purpose</p>
         </div>
+        <div className="hero-scroll-indicator"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
       </section>
 
       {/* Featured Works */}

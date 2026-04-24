@@ -17,6 +17,11 @@
   opacity: 0.7;
 }
 
+/* Timeline section — slightly more open; timeline cards provide their own contrast */
+.history .page-section:nth-child(3) {
+  background: rgba(248, 246, 242, 0.88);
+}
+
 /* Introduction */
 .introduction-content {
   max-width: 1200px;

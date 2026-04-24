@@ -59,6 +59,7 @@ const History = () => {
           <h1>History of Coptic Iconography</h1>
           <p className="lead">Exploring the rich tradition of sacred art from ancient Egypt to the modern era</p>
         </div>
+        <div className="hero-scroll-indicator"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
       </section>
 
       {/* Introduction */}

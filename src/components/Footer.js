@@ -13,15 +13,16 @@ const Footer = () => {
             <h3>Ramsis Iconography</h3>
             <p>Sacred art crafted with devotion and tradition</p>
           </div>
-          
+
           <div className="footer-links">
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
             <Link to="/gallery">Gallery</Link>
+            <Link to="/projects">Projects</Link>
             <Link to="/history">History</Link>
             <Link to="/contact">Contact</Link>
           </div>
-          
+
           <div className="footer-social">
             <h4>Follow Us</h4>
             <div className="social-links">
@@ -43,7 +44,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="footer-bottom">
           <p>&copy; {currentYear} Ramsis Iconography. All rights reserved.</p>
         </div>

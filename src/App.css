@@ -397,11 +397,8 @@ select:focus {
 
 /* Hero — used by all pages */
 .hero {
-  min-height: 80vh;
-  background: linear-gradient(to bottom,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(248, 249, 250, 0.8) 50%,
-    rgba(248, 249, 250, 0.9) 100%);
+  height: calc(100vh - 80px);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -414,22 +411,19 @@ select:focus {
   content: '';
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  height: clamp(60px, 10vw, 200px);
-  background: linear-gradient(to bottom,
-    transparent 0%,
-    rgba(255, 255, 255, 0.4) 40%,
-    rgba(255, 255, 255, 1) 100%);
+  height: clamp(40px, 8vw, 120px);
+  background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 1) 100%);
   pointer-events: none;
 }
 
 .hero-content {
   max-width: 800px;
   z-index: 2;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.88);
   padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem);
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(12px);
 }
 
 .hero h1 {
@@ -451,9 +445,30 @@ select:focus {
   margin: 0 auto;
 }
 
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  animation: hero-scroll-drift 2.5s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+.hero-scroll-indicator svg {
+  display: block;
+  color: var(--accent-maroon);
+  filter: drop-shadow(0 1px 3px rgba(255, 255, 255, 0.6));
+}
+
+@keyframes hero-scroll-drift {
+  0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
+  50%       { opacity: 0.65; transform: translateX(-50%) translateY(5px); }
+}
+
 @media (max-width: 768px) {
   .hero {
-    min-height: 50vh;
+    height: calc(100vh - 70px);
     padding: 3rem 1.5rem;
   }
 }
@@ -506,38 +521,16 @@ select:focus {
   line-height: 1.7;
 }
 
-/* Page Section — content sections with proportional padding and fades */
+/* Page Section — content sections with proportional padding */
 .page-section {
   padding: clamp(3rem, 8vw, 8rem) 0;
-  background: linear-gradient(to bottom,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(248, 249, 250, 0.8) 50%,
-    rgba(255, 255, 255, 0.9) 100%);
+  background: rgba(255, 255, 255, 0.97);
   position: relative;
 }
 
-.page-section::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: clamp(50px, 8vw, 150px);
-  background: linear-gradient(to bottom,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 0.8) 50%,
-    transparent 100%);
-  pointer-events: none;
-}
-
-.page-section::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: clamp(50px, 8vw, 150px);
-  background: linear-gradient(to bottom,
-    transparent 0%,
-    rgba(255, 255, 255, 0.8) 50%,
-    rgba(255, 255, 255, 1) 100%);
-  pointer-events: none;
+/* Alternate even sections to off-white */
+.page-section:nth-child(even) {
+  background: rgba(248, 246, 242, 0.95);
 }
 
 /* Section content containers */

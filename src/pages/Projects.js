@@ -224,6 +224,7 @@ const Projects = () => {
           <h1>Church Projects</h1>
           <p className="lead">Sacred iconographic works across North America by George Ramsis</p>
         </div>
+        <div className="hero-scroll-indicator"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
       </section>
 
       {/* Intro Section */}
@@ -241,11 +242,6 @@ const Projects = () => {
               world-renowned Slade School of Fine Art, University College London (UCL). His mastery
               of traditional iconographic methods and theological depth have made him one of the most
               sought-after iconographers in the Coptic Orthodox tradition.
-            </p>
-            <p>
-              Each project represents months of meticulous work, combining ancient egg tempera techniques,
-              gold leaf application, and deep theological study to produce sacred art worthy of the churches
-              that bear them.
             </p>
           </div>
         </div>
