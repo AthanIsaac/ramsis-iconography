@@ -62,6 +62,52 @@
   gap: 1.25rem;
 }
 
+/* Sacred Process */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Testimonials */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+.testimonial-item:last-child {
+  grid-column: 1 / -1;
+}
+
+.testimonial-item { text-align: left; }
+
+.testimonial-item p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  position: relative;
+  text-align: left;
+}
+
+.testimonial-item p::before {
+  content: '\201C';
+  font-size: 3rem;
+  color: var(--accent-maroon);
+  position: absolute;
+  left: -1.5rem;
+  top: -1rem;
+  font-family: 'Playfair Display', serif;
+  line-height: 1;
+}
+
+.testimonial-author {
+  color: var(--text-primary);
+  font-weight: 500;
+  text-align: left;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .about { padding-top: 70px; }
@@ -75,8 +121,16 @@
   .biography-image { order: -1; }
 
   .training-grid,
-  .recognition-grid {
+  .recognition-grid,
+  .process-grid,
+  .testimonials-grid {
     grid-template-columns: 1fr;
     gap: 0.75rem;
   }
+
+  .testimonial-item:last-child { grid-column: auto; }
+
+  .testimonial-item p::before { display: none; }
+  .testimonial-item p,
+  .testimonial-author { text-align: center; }
 }

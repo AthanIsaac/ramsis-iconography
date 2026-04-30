@@ -234,8 +234,9 @@ const Projects = () => {
             <span className="section-label">Collaboration</span>
             <h2>In Collaboration with Fadi Mikhail</h2>
             <p>
-              George Ramsis had the privilege of working in collaboration with the renowned iconographer Fadi Mikhail,
-              contributing to several significant church projects across North America.
+              All of the church projects featured here were created in collaboration with the renowned
+              iconographer Fadi Mikhail. Solo commissions by George Ramsis will be added as his
+              independent practice continues to grow.
             </p>
             <p>
               Fadi Mikhail, born in 1984, is an Egyptian-English painter and graduate from the
