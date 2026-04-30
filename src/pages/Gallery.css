@@ -86,12 +86,16 @@
   transform: scale(1);
 }
 
+.landscape-item {
+  grid-column: 1 / -1;
+}
+
 .landscape-item .gallery-img-wrap {
   border-radius: 20px;
 }
 
 .landscape-item .gallery-img-wrap img {
-  aspect-ratio: 5/4;
+  aspect-ratio: 3/2;
   object-fit: contain;
   background: #000;
 }
