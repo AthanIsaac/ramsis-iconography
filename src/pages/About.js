@@ -4,7 +4,7 @@ import './About.css';
 
 const credentials = [
   { num: '01', title: 'Apprenticeship', desc: 'Trained under master iconographers in Egypt and London, immersed in the living tradition of Coptic sacred art passed down through generations.' },
-  { num: '02', title: 'Theological Studies', desc: 'Completed extensive theological education to understand the spiritual and canonical requirements of sacred iconography.' },
+  { num: '02', title: 'Theological Grounding', desc: 'Each icon is created with close attention to the theological and historical context behind the subject, honoring the canonical traditions of Coptic sacred art.' },
   { num: '03', title: 'Prayer & Preparation', desc: 'Every icon begins with prayer, fasting, and spiritual preparation to create a sacred space for the work.' },
 ];
 

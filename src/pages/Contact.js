@@ -7,7 +7,7 @@ const faqs = [
   { num: '02', title: 'How long does a commission take?', desc: 'Personal icons typically take 4–8 weeks, while larger church projects can take 3–12 months depending on complexity and size.' },
   { num: '03', title: 'Can I request specific saints or subjects?', desc: 'Absolutely. I can create icons of any canonically recognized saint or traditional iconographic subject following proper theological guidelines.' },
   { num: '04', title: 'Do you offer payment plans?', desc: 'Yes, I offer flexible payment plans for larger commissions. Typically 50% deposit to begin, with the remainder due upon completion.' },
-  { num: '05', title: 'What materials do you use?', desc: 'I use traditional materials including natural pigments, egg tempera, gold leaf, and properly prepared wood panels following ancient techniques.' },
+  { num: '05', title: 'What materials do you use?', desc: 'I use traditional materials including natural pigments, gold leaf, and properly prepared wood panels following ancient techniques.' },
 ];
 
 const Contact = () => {

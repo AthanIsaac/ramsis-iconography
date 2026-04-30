@@ -28,8 +28,8 @@ const Header = () => {
             <ul>
               <li><Link to="/"         className={isActive('/')         ? 'active' : ''} onClick={close}>Home</Link></li>
               <li><Link to="/about"    className={isActive('/about')    ? 'active' : ''} onClick={close}>About</Link></li>
-              <li><Link to="/projects" className={isActive('/projects') ? 'active' : ''} onClick={close}>Projects</Link></li>
               <li><Link to="/gallery"  className={isActive('/gallery')  ? 'active' : ''} onClick={close}>Gallery</Link></li>
+              <li><Link to="/projects" className={isActive('/projects') ? 'active' : ''} onClick={close}>Projects</Link></li>
               <li><Link to="/history"  className={isActive('/history')  ? 'active' : ''} onClick={close}>History</Link></li>
               <li>
                 <Link
