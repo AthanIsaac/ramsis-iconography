@@ -2,22 +2,10 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './About.css';
 
-const training = [
+const credentials = [
   { num: '01', title: 'Apprenticeship', desc: 'Trained under master iconographers in Egypt and London, immersed in the living tradition of Coptic sacred art passed down through generations.' },
   { num: '02', title: 'Theological Studies', desc: 'Completed extensive theological education to understand the spiritual and canonical requirements of sacred iconography.' },
-  { num: '03', title: 'International Collaboration', desc: 'Worked alongside leading iconographers across the world on major church commissions, deepening craft through shared practice.' },
-];
-
-const process = [
-  { num: '01', title: 'Prayer & Preparation', desc: 'Every icon begins with prayer, fasting, and spiritual preparation to create a sacred space for the work.' },
-  { num: '02', title: 'Traditional Materials', desc: 'Using natural pigments, egg tempera, and gold leaf following centuries-old recipes and techniques.' },
-  { num: '03', title: 'Canonical Guidelines', desc: 'Strict adherence to theological and artistic traditions ensures spiritual authenticity in every piece.' },
-];
-
-const recognition = [
-  { num: '01', title: 'Church Commissions', desc: 'George has contributed to many churches across North America, working on iconostasis and sanctuary decorations.' },
-  { num: '02', title: 'Icon Portfolio', desc: 'Dozens of individual icons have been created for private collections, churches, and prayer spaces.' },
-  { num: '03', title: 'Teaching & Workshops', desc: 'Regular workshops and classes help preserve traditional iconographic techniques for future generations.' },
+  { num: '03', title: 'Prayer & Preparation', desc: 'Every icon begins with prayer, fasting, and spiritual preparation to create a sacred space for the work.' },
 ];
 
 const About = () => {
@@ -82,53 +70,15 @@ const About = () => {
         </div>
       </section>
 
-      {/* Training */}
+      {/* Credentials */}
       <section className="page-section">
         <div className="section-content">
           <div className="section-header animate-in">
-            <span className="section-label">Expertise</span>
-            <h2>Training & Expertise</h2>
+            <span className="section-label">Background</span>
+            <h2>Training & Practice</h2>
           </div>
-          <div className="training-grid">
-            {training.map((item, i) => (
-              <div key={i} className="numbered-card animate-in" style={{ transitionDelay: `${i * 0.08}s` }}>
-                <span className="card-number">{item.num}</span>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* The Sacred Process */}
-      <section className="page-section">
-        <div className="section-content">
-          <div className="section-header animate-in">
-            <span className="section-label">Behind the Work</span>
-            <h2>The Sacred Process</h2>
-          </div>
-          <div className="process-grid">
-            {process.map((item, i) => (
-              <div key={i} className="numbered-card animate-in" style={{ transitionDelay: `${i * 0.1}s` }}>
-                <span className="card-number">{item.num}</span>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Recognition */}
-      <section className="page-section">
-        <div className="section-content">
-          <div className="section-header animate-in">
-            <span className="section-label">Work</span>
-            <h2>Recognition & Commissions</h2>
-          </div>
-          <div className="recognition-grid">
-            {recognition.map((item, i) => (
+          <div className="credentials-grid">
+            {credentials.map((item, i) => (
               <div key={i} className="numbered-card animate-in" style={{ transitionDelay: `${i * 0.08}s` }}>
                 <span className="card-number">{item.num}</span>
                 <h3>{item.title}</h3>
