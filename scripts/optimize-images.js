@@ -15,7 +15,7 @@ function walk(dir) {
 }
 
 async function optimize() {
-  const files = walk(uploadsDir).filter(f => /\.(jpe?g|png)$/i.test(f));
+  const files = walk(uploadsDir).filter(f => /\.(jpe?g|png|webp)$/i.test(f));
   let count = 0;
   for (const file of files) {
     const ext = path.extname(file).toLowerCase();
@@ -26,6 +26,8 @@ async function optimize() {
         await img.jpeg({ quality: 82, progressive: true }).toFile(tmp);
       } else if (ext === '.png') {
         await img.png({ compressionLevel: 9 }).toFile(tmp);
+      } else if (ext === '.webp') {
+        await img.webp({ quality: 82 }).toFile(tmp);
       }
       fs.renameSync(tmp, file);
       count++;
