@@ -1,16 +1,54 @@
 {
   "images": [
-    { "src": "/uploads/icons/Christ.jpg", "alt": "Christ Pantocrator Icon" },
-    { "src": "/uploads/icons/Theotokos.jpg", "alt": "Theotokos and Child Icon" },
-    { "src": "/uploads/icons/mark.jpg", "alt": "Saint Mark" },
-    { "src": "/uploads/icons/mary2.jpg", "alt": "Theotokos" },
-    { "src": "/uploads/icons/paul.jpeg", "alt": "St. Paul" },
-    { "src": "/uploads/icons/severusdioskoros.png", "alt": "Saints Severus and Dioskoros", "landscape": true },
-    { "src": "/uploads/icons/simon.jpg", "alt": "Saint Simon Icon" },
-    { "src": "/uploads/icons/StAnthony.jpg", "alt": "Saint Anthony Icon" },
-    { "src": "/uploads/icons/menaPhotini.jpeg", "alt": "Saint Mena and Saint Photini", "landscape": true },
-    { "src": "/uploads/icons/crucifix.png", "alt": "Crucifix Icon" },
-    { "src": "/uploads/icons/StAnthonyWords.jpg", "alt": "Saint Anthony with Words Icon" },
-    { "src": "/uploads/icons/christ1.jpg", "alt": "Christ Icon" }
+    {
+      "src": "/uploads/icons/Christ.jpg",
+      "alt": "Christ Pantocrator Icon"
+    },
+    {
+      "src": "/uploads/icons/Theotokos.jpg",
+      "alt": "Panagia with border"
+    },
+    {
+      "src": "/uploads/icons/mark.jpg",
+      "alt": "Saint Mark"
+    },
+    {
+      "src": "/uploads/icons/mary2.jpg",
+      "alt": "Panagia"
+    },
+    {
+      "src": "/uploads/icons/paul.jpeg",
+      "alt": "St. Paul"
+    },
+    {
+      "src": "/uploads/icons/severusdioskoros.png",
+      "alt": "Saints Severus and Dioscorus",
+      "landscape": true
+    },
+    {
+      "src": "/uploads/icons/simon.jpg",
+      "alt": "Saint Simon the Tanner"
+    },
+    {
+      "src": "/uploads/icons/StAnthony.jpg",
+      "alt": "Saint Anthony"
+    },
+    {
+      "src": "/uploads/icons/menaPhotini.jpeg",
+      "alt": "Saint Mena and Saint Photini",
+      "landscape": true
+    },
+    {
+      "src": "/uploads/icons/crucifix.png",
+      "alt": "Crucifix Icon"
+    },
+    {
+      "src": "/uploads/icons/StAnthonyWords.jpg",
+      "alt": "Saint Anthony - Coptic background"
+    },
+    {
+      "src": "/uploads/icons/christ1.jpg",
+      "alt": "Christ Icon"
+    }
   ]
 }
