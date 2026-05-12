@@ -28,7 +28,7 @@ const Gallery = () => {
     );
     document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  }, [images.length]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
