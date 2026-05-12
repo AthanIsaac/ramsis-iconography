@@ -21,7 +21,7 @@ async function optimize() {
     const ext = path.extname(file).toLowerCase();
     const tmp = file + '.tmp';
     try {
-      const img = sharp(file);
+      const img = sharp(file).rotate();
       if (ext === '.jpg' || ext === '.jpeg') {
         await img.jpeg({ quality: 82, progressive: true }).toFile(tmp);
       } else if (ext === '.png') {
