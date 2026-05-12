@@ -1,0 +1,50 @@
+backend:
+  name: github
+  repo: AthanIsaac/ramsis-iconography
+  branch: main
+  base_url: https://api.netlify.com
+
+media_folder: public/uploads/icons
+public_folder: /uploads/icons
+
+collections:
+  - name: gallery
+    label: Gallery
+    files:
+      - name: gallery
+        label: Gallery Images
+        file: public/data/gallery.json
+        fields:
+          - name: images
+            label: Images
+            widget: list
+            fields:
+              - name: src
+                label: Image
+                widget: image
+              - name: alt
+                label: Description
+                widget: string
+              - name: landscape
+                label: Wide format (landscape icons)
+                widget: boolean
+                default: false
+                required: false
+
+  - name: slideshow
+    label: Slideshow
+    files:
+      - name: slideshow
+        label: Slideshow Images
+        file: public/data/slideshow.json
+        fields:
+          - name: images
+            label: Images
+            widget: list
+            fields:
+              - name: src
+                label: Image
+                widget: image
+              - name: alt
+                label: Description
+                widget: string

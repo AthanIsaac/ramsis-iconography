@@ -2,43 +2,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import './IconSlideshow.css';
 
 const IconSlideshow = () => {
-  const icons = [
-    {
-      src: '/uploads/icons/Theotokos.jpg',
-      alt: 'Theotokos Icon'
-    },
-    {
-      src: '/uploads/icons/Christ.jpg',
-      alt: 'Christ Icon'
-    },
-    {
-      src: '/uploads/icons/StAnthonyWords.jpg',
-      alt: 'Saint Anthony with Words Icon'
-    },
-    {
-      src: '/uploads/icons/StAnthony.jpg',
-      alt: 'Saint Anthony Icon'
-    },
-    {
-      src: '/uploads/icons/severus.png',
-      alt: 'Severus Icon'
-    },
-    {
-      src: '/uploads/icons/dioskoros.png',
-      alt: 'Dioskoros Icon'
-    },
-    {
-      src: '/uploads/icons/simon.jpg',
-      alt: 'St Simon Icon'
-    },
-    {
-      src: '/uploads/icons/crucifix.png',
-      alt: 'Crucifix Icon'
-    }
-  ];
+  const [icons, setIcons] = useState([]);
+
+  useEffect(() => {
+    fetch('/data/slideshow.json')
+      .then(r => r.json())
+      .then(data => setIcons(data.images));
+  }, []);
 
   // Create extended array with first slide duplicated at the end for infinite loop
-  const extendedIcons = [...icons, icons[0]];
+  const extendedIcons = icons.length > 0 ? [...icons, icons[0]] : [];
   
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
@@ -65,6 +38,7 @@ const IconSlideshow = () => {
   };
 
   useEffect(() => {
+    if (icons.length === 0) return;
     startTimer();
     return () => {
       if (intervalRef.current) {
@@ -74,12 +48,11 @@ const IconSlideshow = () => {
         clearTimeout(animationTimeoutRef.current);
       }
     };
-  }, []);
+  }, [icons.length]);
 
   // Handle the infinite loop reset
   useEffect(() => {
-    if (currentIndex === icons.length) {
-      // We're at the duplicate first slide, reset to actual first slide
+    if (icons.length > 0 && currentIndex === icons.length) {
       const timer = setTimeout(() => {
         setIsTransitioning(false);
         setCurrentIndex(0);

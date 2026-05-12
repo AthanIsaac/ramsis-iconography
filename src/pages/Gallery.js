@@ -2,25 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Gallery.css';
 
-const galleryImages = [
-  { src: '/uploads/icons/Christ.jpg', alt: 'Christ Pantocrator Icon' },
-  { src: '/uploads/icons/Theotokos.jpg', alt: 'Theotokos and Child Icon' },
-  { src: '/uploads/icons/mark.jpg', alt: 'Saint Mark' },
-  { src: '/uploads/icons/mary2.jpg', alt: 'Theotokos' },
-  { src: '/uploads/icons/paul.jpeg', alt: 'St. Paul' },
-  { src: '/uploads/icons/severusdioskoros.png', alt: 'Saints Severus and Dioskoros', landscape: true },
-  { src: '/uploads/icons/simon.jpg', alt: 'Saint Simon Icon' },
-  { src: '/uploads/icons/StAnthony.jpg', alt: 'Saint Anthony Icon' },
-  { src: '/uploads/icons/menaPhotini.jpeg', alt: 'Saint Mena and Saint Photini', landscape: true },
-  { src: '/uploads/icons/crucifix.png', alt: 'Crucifix Icon' },
-  { src: '/uploads/icons/StAnthonyWords.jpg', alt: 'Saint Anthony with Words Icon' },
-  { src: '/uploads/icons/christ1.jpg', alt: 'Christ Icon' },
-  
-  
-];
-
 const Gallery = () => {
+  const [images, setImages] = useState([]);
   const [lightbox, setLightbox] = useState(null);
+
+  useEffect(() => {
+    fetch('/data/gallery.json')
+      .then(r => r.json())
+      .then(data => setImages(data.images));
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,14 +34,14 @@ const Gallery = () => {
     const handleKeyDown = (e) => {
       if (!lightbox) return;
       if (e.key === 'Escape') setLightbox(null);
-      if (e.key === 'ArrowRight' && lightbox.index < galleryImages.length - 1)
+      if (e.key === 'ArrowRight' && lightbox.index < images.length - 1)
         setLightbox({ index: lightbox.index + 1 });
       if (e.key === 'ArrowLeft' && lightbox.index > 0)
         setLightbox({ index: lightbox.index - 1 });
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lightbox]);
+  }, [lightbox, images.length]);
 
   useEffect(() => {
     document.body.style.overflow = lightbox ? 'hidden' : '';
@@ -61,7 +51,7 @@ const Gallery = () => {
   const navigate = (dir) => {
     if (!lightbox) return;
     const next = lightbox.index + dir;
-    if (next >= 0 && next < galleryImages.length) setLightbox({ index: next });
+    if (next >= 0 && next < images.length) setLightbox({ index: next });
   };
 
   return (
@@ -71,10 +61,10 @@ const Gallery = () => {
           <button className="lightbox-close" onClick={() => setLightbox(null)} aria-label="Close">✕</button>
           <button className="lightbox-nav lightbox-prev" onClick={e => { e.stopPropagation(); navigate(-1); }} disabled={lightbox.index === 0} aria-label="Previous"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
           <div className="lightbox-img-wrap" onClick={e => e.stopPropagation()}>
-            <img src={galleryImages[lightbox.index].src} alt={galleryImages[lightbox.index].alt} />
+            <img src={images[lightbox.index].src} alt={images[lightbox.index].alt} />
           </div>
-          <button className="lightbox-nav lightbox-next" onClick={e => { e.stopPropagation(); navigate(1); }} disabled={lightbox.index === galleryImages.length - 1} aria-label="Next"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
-          <div className="lightbox-counter">{lightbox.index + 1} / {galleryImages.length}</div>
+          <button className="lightbox-nav lightbox-next" onClick={e => { e.stopPropagation(); navigate(1); }} disabled={lightbox.index === images.length - 1} aria-label="Next"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+          <div className="lightbox-counter">{lightbox.index + 1} / {images.length}</div>
         </div>
       )}
 
@@ -94,7 +84,7 @@ const Gallery = () => {
             <h2>Featured Works</h2>
           </div>
           <div className="featured-grid">
-            {galleryImages.map((img, i) => (
+            {images.map((img, i) => (
               <div key={i} className={`featured-item animate-in${img.landscape ? ' landscape-item' : ''}`} style={{ transitionDelay: `${(i % 2) * 0.1}s` }}>
                 <div
                   className="gallery-img-wrap"
