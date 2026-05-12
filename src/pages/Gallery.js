@@ -5,17 +5,17 @@ import './Gallery.css';
 const galleryImages = [
   { src: '/uploads/icons/Christ.jpg', alt: 'Christ Pantocrator Icon' },
   { src: '/uploads/icons/Theotokos.jpg', alt: 'Theotokos and Child Icon' },
-  { src: '/uploads/icons/severusdioskoros.png', alt: 'Saints Severus and Dioskoros', landscape: true },
-  { src: '/uploads/icons/StAnthony.jpg', alt: 'Saint Anthony Icon' },
+  { src: '/uploads/icons/mark.jpg', alt: 'Saint Mark' },
   { src: '/uploads/icons/mary2.jpg', alt: 'Theotokos' },
-  { src: '/uploads/icons/menaPhotini.jpeg', alt: 'Saint Mena and Saint Photini', landscape: true },
-  
-  // { src: '/uploads/icons/severus.png', alt: 'Saint Severus Icon' },
-  // { src: '/uploads/icons/dioskoros.png', alt: 'Saint Dioscorus Icon' },
-  { src: '/uploads/icons/StAnthonyWords.jpg', alt: 'Saint Anthony with Words Icon' },
+  { src: '/uploads/icons/paul.jpeg', alt: 'St. Paul' },
+  { src: '/uploads/icons/severusdioskoros.png', alt: 'Saints Severus and Dioskoros', landscape: true },
   { src: '/uploads/icons/simon.jpg', alt: 'Saint Simon Icon' },
-  { src: '/uploads/icons/christ1.jpg', alt: 'Christ Icon' },
+  { src: '/uploads/icons/StAnthony.jpg', alt: 'Saint Anthony Icon' },
+  { src: '/uploads/icons/menaPhotini.jpeg', alt: 'Saint Mena and Saint Photini', landscape: true },
   { src: '/uploads/icons/crucifix.png', alt: 'Crucifix Icon' },
+  { src: '/uploads/icons/StAnthonyWords.jpg', alt: 'Saint Anthony with Words Icon' },
+  { src: '/uploads/icons/christ1.jpg', alt: 'Christ Icon' },
+  
   
 ];
 
