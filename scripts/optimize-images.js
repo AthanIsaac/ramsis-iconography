@@ -31,6 +31,12 @@ function isHeic(filePath) {
   }
 }
 
+async function writeVariants(buf, base, ext) {
+  await sharp(buf).webp({ quality: 85 }).toFile(base + '.webp');
+  await sharp(buf).resize(800, null, { withoutEnlargement: true }).webp({ quality: 82 }).toFile(base + '-800.webp');
+  await sharp(buf).resize(800, null, { withoutEnlargement: true }).jpeg({ quality: 82, progressive: true }).toFile(base + '-800.jpg');
+}
+
 async function optimize() {
   const hasWatermark  = fs.existsSync(watermarkPath);
   const watermarkRaw  = hasWatermark ? fs.readFileSync(watermarkPath) : null;
@@ -78,42 +84,72 @@ async function optimize() {
     }
   }
 
-  // Apply watermark to gallery/slideshow icons — skip everything else
+  // Watermark gallery/slideshow icons + generate WebP and thumbnail variants
   for (const file of walk(iconsDir).filter(f => /\.(jpe?g|png|webp)$/i.test(f))) {
-    if (!watermarkNames.has(path.basename(file))) continue;
-    if (!watermarkRaw) continue;
+    const base = file.replace(/\.[^.]+$/, '');
+    const ext  = path.extname(file).toLowerCase();
+    const tmp  = file + '.tmp';
 
-    const ext = path.extname(file).toLowerCase();
-    const tmp = file + '.tmp';
-    try {
-      const meta      = await sharp(file).metadata();
-      const needsSwap = meta.orientation && meta.orientation >= 5;
-      const w = needsSwap ? meta.height : meta.width;
-      const h = needsSwap ? meta.width  : meta.height;
+    if (watermarkNames.has(path.basename(file)) && watermarkRaw) {
+      try {
+        const meta      = await sharp(file).metadata();
+        const needsSwap = meta.orientation && meta.orientation >= 5;
+        const w = needsSwap ? meta.height : meta.width;
 
-      const wmW     = Math.round(w * 0.8);
-      const wmH     = Math.round(watermarkMeta.height * (wmW / watermarkMeta.width));
-      const resized = await sharp(watermarkRaw).resize(wmW, wmH).toBuffer();
+        const wmW     = Math.round(w * 0.8);
+        const wmH     = Math.round(watermarkMeta.height * (wmW / watermarkMeta.width));
+        const resized = await sharp(watermarkRaw).resize(wmW, wmH).toBuffer();
 
-      const pipeline = sharp(file).rotate().composite([{ input: resized, gravity: 'center', blend: 'over' }]);
+        // Produce watermarked buffer once — reuse for all outputs
+        const wmBuf = await sharp(file)
+          .rotate()
+          .composite([{ input: resized, gravity: 'center', blend: 'over' }])
+          .toBuffer();
 
-      if (ext === '.jpg' || ext === '.jpeg') {
-        await pipeline.jpeg({ quality: 82, progressive: true }).toFile(tmp);
-      } else if (ext === '.png') {
-        await pipeline.png({ compressionLevel: 9 }).toFile(tmp);
-      } else if (ext === '.webp') {
-        await pipeline.webp({ quality: 82 }).toFile(tmp);
+        // Write watermarked original format
+        if (ext === '.jpg' || ext === '.jpeg') {
+          await sharp(wmBuf).jpeg({ quality: 82, progressive: true }).toFile(tmp);
+        } else if (ext === '.png') {
+          await sharp(wmBuf).png({ compressionLevel: 9 }).toFile(tmp);
+        } else if (ext === '.webp') {
+          await sharp(wmBuf).webp({ quality: 82 }).toFile(tmp);
+        }
+        fs.renameSync(tmp, file);
+
+        // WebP full size + 800w thumbnail
+        await writeVariants(wmBuf, base, ext);
+        count++;
+      } catch (e) {
+        if (fs.existsSync(tmp)) fs.unlinkSync(tmp);
+        console.error(`Skipped ${path.basename(file)}: ${e.message}`);
       }
-
-      fs.renameSync(tmp, file);
-      count++;
-    } catch (e) {
-      if (fs.existsSync(tmp)) fs.unlinkSync(tmp);
-      console.error(`Skipped ${path.basename(file)}: ${e.message}`);
+    } else {
+      // Non-gallery icon (history, portraits, etc.) — generate WebP variants only, don't touch original
+      try {
+        const buf = await sharp(file).rotate().toBuffer();
+        await writeVariants(buf, base, ext);
+        count++;
+      } catch (e) {
+        console.error(`Skipped variants for ${path.basename(file)}: ${e.message}`);
+      }
     }
   }
 
-  console.log(`Watermarked ${count} image(s).`);
+  // Generate WebP + thumbnail variants for project images — originals untouched
+  for (const file of walk(uploadsDir).filter(f =>
+    /\.(jpe?g|png)$/i.test(f) && !f.startsWith(iconsDir) && !/-800\.(jpg|webp)$/.test(f)
+  )) {
+    const base = file.replace(/\.[^.]+$/, '');
+    try {
+      const buf = await sharp(file).rotate().toBuffer();
+      await writeVariants(buf, base, path.extname(file).toLowerCase());
+      count++;
+    } catch (e) {
+      console.error(`Skipped variants for ${path.basename(file)}: ${e.message}`);
+    }
+  }
+
+  console.log(`Processed ${count} image(s).`);
 }
 
 optimize();

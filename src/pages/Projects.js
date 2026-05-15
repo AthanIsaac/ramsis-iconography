@@ -181,12 +181,23 @@ const Projects = () => {
                     onKeyDown={e => e.key === 'Enter' && openLightbox(projectIndex, pageStart + i)}
                     aria-label={`View ${project.name} image ${pageStart + i + 1}`}
                   >
-                    <img
-                      src={image.src}
-                      alt={`${project.name} - ${pageStart + i + 1}`}
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <picture>
+                      <source
+                        type="image/webp"
+                        srcSet={`${image.src.replace(/\.[^.]+$/, '-800.webp')} 800w, ${image.src.replace(/\.[^.]+$/, '.webp')}`}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                      />
+                      <source
+                        srcSet={`${image.src.replace(/\.[^.]+$/, '-800.jpg')} 800w, ${image.src}`}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                      />
+                      <img
+                        src={image.src}
+                        alt={`${project.name} - ${pageStart + i + 1}`}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
                     <div className="proj-img-overlay">
                       <span className="proj-img-expand">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

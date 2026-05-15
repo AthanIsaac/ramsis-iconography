@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import LazyImage from './LazyImage';
 import './IconSlideshow.css';
 
 const IconSlideshow = () => {
@@ -132,12 +133,12 @@ const IconSlideshow = () => {
         >
           {extendedIcons.map((icon, index) => (
             <div key={index} className={`slide ${icon.isLandscape ? 'landscape-slide' : ''}`}>
-              <img
+              <LazyImage
                 src={icon.src}
                 alt={icon.alt}
-                loading={index === 0 ? 'eager' : 'lazy'}
-                decoding="async"
-                className={`slide-image ${icon.isLandscape ? 'landscape-image' : ''}`}
+                priority={index === 0}
+                imgClassName={`slide-image${icon.isLandscape ? ' landscape-image' : ''}`}
+                sizes="100vw"
               />
             </div>
           ))}

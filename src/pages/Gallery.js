@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import LazyImage from '../components/LazyImage';
 import './Gallery.css';
 
 const Gallery = () => {
@@ -94,12 +95,12 @@ const Gallery = () => {
                   onKeyDown={e => e.key === 'Enter' && setLightbox({ index: i })}
                   aria-label={`View ${img.alt} fullscreen`}
                 >
-                  <img
+                  <LazyImage
                     src={img.src}
                     alt={img.alt}
-                    loading="lazy"
-                    decoding="async"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    priority={i === 0}
+                    imgStyle={{ objectFit: 'cover' }}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                   />
                   <div className="gallery-img-overlay">
                     <span className="gallery-img-expand">

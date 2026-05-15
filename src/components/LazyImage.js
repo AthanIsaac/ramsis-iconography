@@ -1,75 +1,51 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 
-const LazyImage = ({ src, alt, className, style, ...props }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(false);
-  const imgRef = useRef();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '50px'
-      }
-    );
-
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const handleLoad = () => {
-    setIsLoaded(true);
+function deriveVariants(src) {
+  if (!src) return {};
+  const base = src.replace(/\.[^.]+$/, '');
+  return {
+    webp:    base + '.webp',
+    webp800: base + '-800.webp',
+    jpg800:  base + '-800.jpg',
   };
+}
+
+const LazyImage = ({
+  src,
+  alt,
+  wrapperClassName = '',
+  imgClassName = '',
+  imgStyle,
+  sizes = '(max-width: 768px) 100vw, 50vw',
+  priority = false,
+}) => {
+  const [loaded, setLoaded] = useState(false);
+  const { webp, webp800, jpg800 } = deriveVariants(src);
 
   return (
-    <div 
-      ref={imgRef}
-      className={className}
-      style={{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: isLoaded ? 'transparent' : '#f8f9fa',
-        transition: 'background-color 0.3s ease',
-        ...style
-      }}
-      {...props}
-    >
-      {isInView && (
+    <div className={`lazy-wrap${loaded ? ' lazy-loaded' : ''}${wrapperClassName ? ' ' + wrapperClassName : ''}`}>
+      {!loaded && <div className="lazy-shimmer" aria-hidden="true" />}
+      <picture>
+        <source
+          type="image/webp"
+          srcSet={`${webp800} 800w, ${webp}`}
+          sizes={sizes}
+        />
+        <source
+          srcSet={`${jpg800} 800w, ${src}`}
+          sizes={sizes}
+        />
         <img
           src={src}
           alt={alt}
-          onLoad={handleLoad}
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            opacity: isLoaded ? 1 : 0,
-            transition: 'opacity 0.3s ease',
-            border: '1px solid var(--border-subtle)'
-          }}
+          className={imgClassName}
+          style={imgStyle}
+          loading={priority ? 'eager' : 'lazy'}
+          decoding="async"
+          fetchPriority={priority ? 'high' : 'auto'}
+          onLoad={() => setLoaded(true)}
         />
-      )}
-      {!isLoaded && isInView && (
-        <div style={{
-          position: 'absolute',
-          color: '#6c757d',
-          fontSize: '14px'
-        }}>
-          Loading...
-        </div>
-      )}
+      </picture>
     </div>
   );
 };
