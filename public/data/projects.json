@@ -4,69 +4,156 @@
       "name": "St. Athanasius American Coptic Orthodox Church",
       "location": "Orlando, FL",
       "images": [
-        { "src": "/uploads/projects/38BBED8E-36B7-42FB-9F75-2D1BE18BA0A7.JPG" },
-        { "src": "/uploads/projects/ECFED977-68A5-478E-A5FB-57632760556B.JPG" },
-        { "src": "/uploads/projects/IMG_1184.JPG" },
-        { "src": "/uploads/projects/IMG_1185.JPG" },
-        { "src": "/uploads/projects/IMG_1186.JPG" },
-        { "src": "/uploads/projects/IMG_1187.JPG" },
-        { "src": "/uploads/projects/IMG_9699.JPG" },
-        { "src": "/uploads/projects/IMG_9716.JPG" },
-        { "src": "/uploads/projects/IMG_1188.JPG" },
-        { "src": "/uploads/projects/IMG_9715.JPG" },
-        { "src": "/uploads/projects/IMG_9776.JPG" },
-        { "src": "/uploads/projects/IMG_9786.JPG" },
-        { "src": "/uploads/projects/IMG_9817.JPG" }
+        {
+          "src": "/uploads/projects/38BBED8E-36B7-42FB-9F75-2D1BE18BA0A7.JPG"
+        },
+        {
+          "src": "/uploads/projects/ECFED977-68A5-478E-A5FB-57632760556B.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_9716.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_9699.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_9715.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_9776.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_9786.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_1184.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_1185.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_1186.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_1187.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_1188.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_9817.JPG"
+        }
       ]
     },
     {
       "name": "Holy Cross Coptic Orthodox Church",
       "location": "Austin, TX",
       "images": [
-        { "src": "/uploads/projects/6b4f0a0b-ac39-4e99-87b6-97985d94bc98.png.PNG" },
-        { "src": "/uploads/projects/3716adf2-7d7d-4742-99b0-92d40cc722f8.png.PNG" },
-        { "src": "/uploads/projects/IMG_4319.JPG" },
-        { "src": "/uploads/projects/IMG_6180.JPG" },
-        { "src": "/uploads/projects/IMG_6181.JPG" },
-        { "src": "/uploads/projects/IMG_6202.JPG" },
-        { "src": "/uploads/projects/IMG_6287.JPG" },
-        { "src": "/uploads/projects/IMG_6289.JPG" }
+        {
+          "src": "/uploads/projects/IMG_6180.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_6181.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_6202.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_4319.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_6289.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_6287.JPG"
+        },
+        {
+          "src": "/uploads/projects/6b4f0a0b-ac39-4e99-87b6-97985d94bc98.png.PNG"
+        }
       ]
     },
     {
       "name": "St. Mary and St. Mina Coptic Orthodox Church",
       "location": "Clearwater, FL",
       "images": [
-        { "src": "/uploads/projects/IMG_3055.JPG" },
-        { "src": "/uploads/projects/IMG_3069.JPG" },
-        { "src": "/uploads/projects/IMG_3125.JPG" },
-        { "src": "/uploads/projects/IMG_3158.JPG" },
-        { "src": "/uploads/projects/PHOTO-2025-11-12-23-53-57.JPG" },
-        { "src": "/uploads/projects/PHOTO-2025-11-12-23-53-58.JPG" }
+        {
+          "src": "/uploads/projects/IMG_3055.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_3069.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_3125.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_3158.JPG"
+        },
+        {
+          "src": "/uploads/projects/PHOTO-2025-11-12-23-53-57.JPG"
+        },
+        {
+          "src": "/uploads/projects/PHOTO-2025-11-12-23-53-58.JPG"
+        }
       ]
     },
     {
       "name": "St. Paul American Coptic Orthodox Church",
       "location": "Irvine, CA",
       "images": [
-        { "src": "/uploads/projects/24ee0597-55c9-4cf9-af4d-0b1f879d1e49.JPG" },
-        { "src": "/uploads/projects/32cfbe90-7f95-4e60-b3b8-1cf08bd52732.JPG" },
-        { "src": "/uploads/projects/067B2368-ABBC-44D4-A92F-CDC5BD1BCCFD.JPG" },
-        { "src": "/uploads/projects/a7e78954-a697-44cb-91fa-09ccb4f6bb86.JPG" },
-        { "src": "/uploads/projects/c2d2c80d-64f3-4fcb-b813-d3d7f3590e3d.JPG" },
-        { "src": "/uploads/projects/e890387c-a7c4-4cdc-af74-d80ba0bcf98e.JPG" },
-        { "src": "/uploads/projects/eb648701-baa2-4720-a99c-58e782ac7563.JPG" },
-        { "src": "/uploads/projects/ee0a6096-fe61-42d8-b73c-ca4a7b3bd10f.JPG" },
-        { "src": "/uploads/projects/IMG_4689.PNG" },
-        { "src": "/uploads/projects/IMG_4713.JPG" },
-        { "src": "/uploads/projects/IMG_4725.JPG" },
-        { "src": "/uploads/projects/IMG_4828.JPG" },
-        { "src": "/uploads/projects/IMG_4883.JPG" },
-        { "src": "/uploads/projects/IMG_4922.JPG" },
-        { "src": "/uploads/projects/IMG_4924.JPG" },
-        { "src": "/uploads/projects/IMG_4950.JPG" },
-        { "src": "/uploads/projects/IMG_5148.JPG" },
-        { "src": "/uploads/projects/IMG_5149.JPG" }
+        {
+          "src": "/uploads/projects/IMG_4689.PNG"
+        },
+        {
+          "src": "/uploads/projects/067B2368-ABBC-44D4-A92F-CDC5BD1BCCFD.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_4713.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_4725.JPG"
+        },
+        {
+          "src": "/uploads/projects/24ee0597-55c9-4cf9-af4d-0b1f879d1e49.JPG"
+        },
+        {
+          "src": "/uploads/projects/32cfbe90-7f95-4e60-b3b8-1cf08bd52732.JPG"
+        },
+        {
+          "src": "/uploads/projects/a7e78954-a697-44cb-91fa-09ccb4f6bb86.JPG"
+        },
+        {
+          "src": "/uploads/projects/c2d2c80d-64f3-4fcb-b813-d3d7f3590e3d.JPG"
+        },
+        {
+          "src": "/uploads/projects/e890387c-a7c4-4cdc-af74-d80ba0bcf98e.JPG"
+        },
+        {
+          "src": "/uploads/projects/eb648701-baa2-4720-a99c-58e782ac7563.JPG"
+        },
+        {
+          "src": "/uploads/projects/ee0a6096-fe61-42d8-b73c-ca4a7b3bd10f.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_4828.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_4883.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_4922.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_4924.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_4950.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_5148.JPG"
+        },
+        {
+          "src": "/uploads/projects/IMG_5149.JPG"
+        }
       ]
     }
   ]
