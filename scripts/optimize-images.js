@@ -2,10 +2,10 @@ const sharp = require('sharp');
 const path = require('path');
 const fs = require('fs');
 
-const uploadsDir = path.join(__dirname, '../public/uploads');
-const iconsDir   = path.join(__dirname, '../public/uploads/icons');
-const dataDir    = path.join(__dirname, '../public/data');
-const fontPath   = path.join(__dirname, '../public/RumbleBrave.otf');
+const uploadsDir    = path.join(__dirname, '../public/uploads');
+const iconsDir      = path.join(__dirname, '../public/uploads/icons');
+const dataDir       = path.join(__dirname, '../public/data');
+const watermarkPath = path.join(__dirname, '../public/watermark.png');
 
 function walk(dir) {
   const results = [];
@@ -17,43 +17,34 @@ function walk(dir) {
   return results;
 }
 
-function buildWatermarkSvg(width, height, fontBase64) {
-  const fontSize     = Math.round(width * 0.09);
-  const letterSpacing = Math.round(fontSize * 0.12);
-  const cx = Math.round(width / 2);
-  const cy = Math.round(height / 2);
-
-  const fontFace = fontBase64
-    ? `@font-face { font-family: 'Rumble Brave'; src: url('data:font/otf;base64,${fontBase64}') format('opentype'); }`
-    : '';
-  const fontFamily = fontBase64 ? "'Rumble Brave', serif" : 'serif';
-
-  return Buffer.from(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
-    `<defs>` +
-    `<style>${fontFace}</style>` +
-    `<filter id="s"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="black" flood-opacity="0.3"/></filter>` +
-    `</defs>` +
-    `<text x="${cx}" y="${cy}" text-anchor="middle" dominant-baseline="middle" ` +
-    `font-family="${fontFamily}" font-size="${fontSize}" letter-spacing="${letterSpacing}" ` +
-    `fill="white" fill-opacity="0.4" filter="url(#s)">ramsis iconography</text>` +
-    `</svg>`
-  );
+function isHeic(filePath) {
+  try {
+    const buf = Buffer.alloc(12);
+    const fd  = fs.openSync(filePath, 'r');
+    fs.readSync(fd, buf, 0, 12, 0);
+    fs.closeSync(fd);
+    const boxType = buf.slice(4, 8).toString('ascii');
+    const brand   = buf.slice(8, 12).toString('ascii');
+    return boxType === 'ftyp' && /^(heic|heif|heis|heix|mif1|msf1)$/.test(brand);
+  } catch {
+    return false;
+  }
 }
 
 async function optimize() {
-  const fontBase64 = fs.existsSync(fontPath)
-    ? fs.readFileSync(fontPath).toString('base64')
-    : null;
+  const hasWatermark  = fs.existsSync(watermarkPath);
+  const watermarkRaw  = hasWatermark ? fs.readFileSync(watermarkPath) : null;
+  const watermarkMeta = hasWatermark ? await sharp(watermarkRaw).metadata() : null;
 
-  if (!fontBase64) console.warn('Warning: RumbleBrave.otf not found — watermark will use fallback serif font');
+  if (!hasWatermark) console.warn('Warning: public/watermark.png not found — gallery icons will have no watermark');
 
   let count = 0;
 
-  // Convert HEIC → JPG first, then update JSON references
-  const heicFiles = walk(uploadsDir).filter(f => /\.heic$/i.test(f));
+  // Convert HEIC → JPG (catches .heic extension AND HEIC data with a wrong extension)
+  const heicFiles = walk(uploadsDir).filter(f => /\.heic$/i.test(f) || isHeic(f));
   for (const file of heicFiles) {
-    const jpgPath = file.replace(/\.heic$/i, '.jpg');
+    const jpgPath = file.replace(/\.[^.]+$/, '.jpg');
+    if (jpgPath === file) continue;
     try {
       await sharp(file).rotate().jpeg({ quality: 82, progressive: true }).toFile(jpgPath);
       fs.unlinkSync(file);
@@ -64,15 +55,19 @@ async function optimize() {
   }
 
   if (heicFiles.length > 0 && fs.existsSync(dataDir)) {
-    for (const file of fs.readdirSync(dataDir).filter(f => f.endsWith('.json'))) {
-      const filePath = path.join(dataDir, file);
-      const content = fs.readFileSync(filePath, 'utf8');
-      const updated = content.replace(/\.heic/gi, '.jpg');
-      if (updated !== content) fs.writeFileSync(filePath, updated, 'utf8');
+    for (const jsonFile of fs.readdirSync(dataDir).filter(f => f.endsWith('.json'))) {
+      const filePath = path.join(dataDir, jsonFile);
+      let content    = fs.readFileSync(filePath, 'utf8');
+      for (const heicFile of heicFiles) {
+        const oldName = path.basename(heicFile);
+        const newName = oldName.replace(/\.[^.]+$/, '.jpg');
+        if (oldName !== newName) content = content.split(oldName).join(newName);
+      }
+      fs.writeFileSync(filePath, content, 'utf8');
     }
   }
 
-  // Build the set of filenames referenced in gallery.json and slideshow.json
+  // Build the set of filenames that need a watermark (gallery + slideshow only)
   const watermarkNames = new Set();
   for (const jsonFile of ['gallery.json', 'slideshow.json']) {
     const jsonPath = path.join(dataDir, jsonFile);
@@ -83,23 +78,24 @@ async function optimize() {
     }
   }
 
-  // Optimize + watermark only gallery/slideshow icons
-  const iconFiles = walk(iconsDir).filter(f => /\.(jpe?g|png|webp)$/i.test(f));
-  for (const file of iconFiles) {
-    const shouldWatermark = watermarkNames.has(path.basename(file));
+  // Apply watermark to gallery/slideshow icons — skip everything else
+  for (const file of walk(iconsDir).filter(f => /\.(jpe?g|png|webp)$/i.test(f))) {
+    if (!watermarkNames.has(path.basename(file))) continue;
+    if (!watermarkRaw) continue;
+
     const ext = path.extname(file).toLowerCase();
     const tmp = file + '.tmp';
     try {
-      const meta = await sharp(file).metadata();
+      const meta      = await sharp(file).metadata();
       const needsSwap = meta.orientation && meta.orientation >= 5;
       const w = needsSwap ? meta.height : meta.width;
       const h = needsSwap ? meta.width  : meta.height;
 
-      let pipeline = sharp(file).rotate();
-      if (shouldWatermark) {
-        const watermark = buildWatermarkSvg(w, h, fontBase64);
-        pipeline = pipeline.composite([{ input: watermark }]);
-      }
+      const wmW     = Math.round(w * 0.8);
+      const wmH     = Math.round(watermarkMeta.height * (wmW / watermarkMeta.width));
+      const resized = await sharp(watermarkRaw).resize(wmW, wmH).toBuffer();
+
+      const pipeline = sharp(file).rotate().composite([{ input: resized, gravity: 'center', blend: 'over' }]);
 
       if (ext === '.jpg' || ext === '.jpeg') {
         await pipeline.jpeg({ quality: 82, progressive: true }).toFile(tmp);
@@ -117,30 +113,7 @@ async function optimize() {
     }
   }
 
-  // Optimize non-icon images (projects, etc.) without watermark
-  const otherFiles = walk(uploadsDir)
-    .filter(f => /\.(jpe?g|png|webp)$/i.test(f) && !f.startsWith(iconsDir));
-  for (const file of otherFiles) {
-    const ext = path.extname(file).toLowerCase();
-    const tmp = file + '.tmp';
-    try {
-      const pipeline = sharp(file).rotate();
-      if (ext === '.jpg' || ext === '.jpeg') {
-        await pipeline.jpeg({ quality: 82, progressive: true }).toFile(tmp);
-      } else if (ext === '.png') {
-        await pipeline.png({ compressionLevel: 9 }).toFile(tmp);
-      } else if (ext === '.webp') {
-        await pipeline.webp({ quality: 82 }).toFile(tmp);
-      }
-      fs.renameSync(tmp, file);
-      count++;
-    } catch (e) {
-      if (fs.existsSync(tmp)) fs.unlinkSync(tmp);
-      console.error(`Skipped ${path.basename(file)}: ${e.message}`);
-    }
-  }
-
-  console.log(`Optimized ${count} image(s).`);
+  console.log(`Watermarked ${count} image(s).`);
 }
 
 optimize();
