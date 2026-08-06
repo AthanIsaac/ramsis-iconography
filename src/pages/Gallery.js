@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import LazyImage from '../components/LazyImage';
 import './Gallery.css';
@@ -55,10 +55,28 @@ const Gallery = () => {
     if (next >= 0 && next < images.length) setLightbox({ index: next });
   };
 
+  const touchStartX = useRef(null);
+  const touchStartY = useRef(null);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    const deltaY = e.changedTouches[0].clientY - touchStartY.current;
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50)
+      navigate(deltaX < 0 ? 1 : -1);
+    touchStartX.current = null;
+    touchStartY.current = null;
+  };
+
   return (
     <div className="gallery">
       {lightbox && (
-        <div className="lightbox-overlay" onClick={() => setLightbox(null)}>
+        <div className="lightbox-overlay" onClick={() => setLightbox(null)} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
           <button className="lightbox-close" onClick={() => setLightbox(null)} aria-label="Close">✕</button>
           <button className="lightbox-nav lightbox-prev" onClick={e => { e.stopPropagation(); navigate(-1); }} disabled={lightbox.index === 0} aria-label="Previous"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
           <div className="lightbox-img-wrap" onClick={e => e.stopPropagation()}>

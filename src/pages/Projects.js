@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Projects.css';
 
@@ -72,6 +72,24 @@ const Projects = () => {
   const changePage = (projectIndex, newPage) =>
     setCurrentPages(prev => ({ ...prev, [projectIndex]: newPage }));
 
+  const touchStartX = useRef(null);
+  const touchStartY = useRef(null);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    const deltaY = e.changedTouches[0].clientY - touchStartY.current;
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50)
+      navigateLightbox(deltaX < 0 ? 1 : -1);
+    touchStartX.current = null;
+    touchStartY.current = null;
+  };
+
   const openLightbox = (projectIndex, imageIndex) => {
     setLightbox({ projectIndex, imageIndex, src: projects[projectIndex].images[imageIndex].src });
   };
@@ -105,7 +123,7 @@ const Projects = () => {
   return (
     <div className="projects-page">
       {lightbox && (
-        <div className="lightbox-overlay" onClick={() => setLightbox(null)}>
+        <div className="lightbox-overlay" onClick={() => setLightbox(null)} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
           <button className="lightbox-close" onClick={() => setLightbox(null)} aria-label="Close">✕</button>
           <button
             className="lightbox-nav lightbox-prev"
