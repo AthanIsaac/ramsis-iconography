@@ -1,0 +1,84 @@
+backend:
+  name: github
+  repo: AthanIsaac/ramsis-iconography
+  branch: main
+  base_url: https://api.netlify.com
+
+site_url: https://athanisaac.github.io/ramsis-iconography
+display_url: https://athanisaac.github.io/ramsis-iconography
+
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  - name: gallery
+    label: Gallery
+    media_folder: public/uploads/icons
+    public_folder: /uploads/icons
+    files:
+      - name: gallery
+        label: Gallery Images
+        file: public/data/gallery.json
+        fields:
+          - name: images
+            label: Images
+            widget: list
+            fields:
+              - name: src
+                label: Image
+                widget: image
+              - name: alt
+                label: Description
+                widget: string
+              - name: landscape
+                label: Wide format (landscape icons)
+                widget: boolean
+                default: false
+                required: false
+
+  - name: slideshow
+    label: Slideshow
+    media_folder: public/uploads/icons
+    public_folder: /uploads/icons
+    files:
+      - name: slideshow
+        label: Slideshow Images
+        file: public/data/slideshow.json
+        fields:
+          - name: images
+            label: Images
+            widget: list
+            fields:
+              - name: src
+                label: Image
+                widget: image
+              - name: alt
+                label: Description
+                widget: string
+
+  - name: projects
+    label: Projects
+    media_folder: public/uploads/projects
+    public_folder: /uploads/projects
+    files:
+      - name: projects
+        label: Church Projects
+        file: public/data/projects.json
+        fields:
+          - name: projects
+            label: Projects
+            widget: list
+            fields:
+              - name: name
+                label: Church Name
+                widget: string
+              - name: location
+                label: Location
+                widget: string
+              - name: images
+                label: Images
+                widget: list
+                fields:
+                  - name: src
+                    label: Image
+                    widget: image

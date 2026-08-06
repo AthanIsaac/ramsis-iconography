@@ -1,0 +1,36 @@
+{
+  "images": [
+    {
+      "src": "/uploads/icons/Theotokos.jpg",
+      "alt": "Theotokos Icon"
+    },
+    {
+      "src": "/uploads/icons/Christ.jpg",
+      "alt": "Christ Icon"
+    },
+    {
+      "src": "/uploads/icons/StAnthonyWords.jpg",
+      "alt": "Saint Anthony with Words Icon"
+    },
+    {
+      "src": "/uploads/icons/StAnthony.jpg",
+      "alt": "Saint Anthony Icon"
+    },
+    {
+      "src": "/uploads/icons/severus.png",
+      "alt": "Severus Icon"
+    },
+    {
+      "src": "/uploads/icons/dioskoros.png",
+      "alt": "Dioskoros Icon"
+    },
+    {
+      "src": "/uploads/icons/simon.jpg",
+      "alt": "St Simon Icon"
+    },
+    {
+      "src": "/uploads/icons/crucifix.png",
+      "alt": "Crucifix Icon"
+    }
+  ]
+}
