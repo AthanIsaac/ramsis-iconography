@@ -2,23 +2,28 @@
   "images": [
     {
       "src": "/uploads/icons/Christ.jpg",
-      "alt": "Christ Pantocrator Icon"
+      "alt": "Christ Pantocrator Icon",
+      "landscape": false
     },
     {
       "src": "/uploads/icons/Theotokos.jpg",
-      "alt": "Panagia with border"
+      "alt": "Panagia with border",
+      "landscape": false
     },
     {
       "src": "/uploads/icons/mark.jpg",
-      "alt": "Saint Mark"
+      "alt": "Saint Mark",
+      "landscape": false
     },
     {
       "src": "/uploads/icons/mary2.jpg",
-      "alt": "Panagia"
+      "alt": "Panagia",
+      "landscape": false
     },
     {
       "src": "/uploads/icons/paul.jpeg",
-      "alt": "St. Paul"
+      "alt": "St. Paul",
+      "landscape": false
     },
     {
       "src": "/uploads/icons/severusdioskoros.png",
@@ -27,11 +32,13 @@
     },
     {
       "src": "/uploads/icons/simon.jpg",
-      "alt": "Saint Simon the Tanner"
+      "alt": "Saint Simon the Tanner",
+      "landscape": false
     },
     {
       "src": "/uploads/icons/StAnthony.jpg",
-      "alt": "Saint Anthony"
+      "alt": "Saint Anthony",
+      "landscape": false
     },
     {
       "src": "/uploads/icons/menaPhotini.jpeg",
@@ -40,15 +47,23 @@
     },
     {
       "src": "/uploads/icons/crucifix.png",
-      "alt": "Crucifix Icon"
+      "alt": "Crucifix Icon",
+      "landscape": false
     },
     {
       "src": "/uploads/icons/StAnthonyWords.jpg",
-      "alt": "Saint Anthony - Coptic background"
+      "alt": "Saint Anthony - Coptic background",
+      "landscape": false
     },
     {
       "src": "/uploads/icons/christ1.jpg",
-      "alt": "Christ Icon"
+      "alt": "Christ Icon",
+      "landscape": false
+    },
+    {
+      "src": "/uploads/icons/2E63A654-3270-43CA-AD58-2055A7CF2505.png",
+      "alt": "St. Moses the Black",
+      "landscape": false
     }
   ]
 }
