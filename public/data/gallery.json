@@ -41,6 +41,11 @@
       "landscape": false
     },
     {
+      "src": "/uploads/icons/2E63A654-3270-43CA-AD58-2055A7CF2505.png",
+      "alt": "St. Moses the Black",
+      "landscape": false
+    },
+    {
       "src": "/uploads/icons/menaPhotini.jpeg",
       "alt": "Saint Mena and Saint Photini",
       "landscape": true
@@ -58,11 +63,6 @@
     {
       "src": "/uploads/icons/christ1.jpg",
       "alt": "Christ Icon",
-      "landscape": false
-    },
-    {
-      "src": "/uploads/icons/2E63A654-3270-43CA-AD58-2055A7CF2505.png",
-      "alt": "St. Moses the Black",
       "landscape": false
     }
   ]
